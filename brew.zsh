@@ -2,4 +2,4 @@
 brewinfo() { brew info "$1"; brew desc "$1"; }         # get all information on a brew package
 brewsearch() { brew search "$1"; brew desc -s "$1"; }  # thorough search for brew packages
 alias bu='brew update && brew upgrade && brew cleanup && brew list --versions > ~/Dropbox/Documents/miscellaneous/brew.txt'
-alias bp='brew cask cleanup && brew prune && brew doctor'
+alias bp='brew cleanup && brew prune && brew doctor'
