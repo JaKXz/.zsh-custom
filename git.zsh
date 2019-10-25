@@ -1,6 +1,6 @@
 # Git
 alias gcb='git town prune-branches'
-alias gcm='git checkout master && gupav && gsa'
+alias gcm='git checkout master && gupav'
 
 alias st='open -a SourceTree .'
 alias gsa='git stash pop'
