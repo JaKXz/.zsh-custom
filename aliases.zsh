@@ -4,8 +4,8 @@ alias ping='prettyping'
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
-alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
-alias ls='ls -AFGp'
+alias ll='exa -lFabh --git'                 # Preferred 'ls' implementation
+alias ls='exa -F'
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
