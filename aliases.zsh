@@ -1,5 +1,5 @@
-alias cat='ccat'
-# alias cat='ccat --bg="dark"'                # colorized (syntax highlighted) cat
+#alias cat='ccat'
+alias cat='ccat --bg="dark"'                # colorized (syntax highlighted) cat
 alias ping='prettyping'
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
