@@ -1,3 +1,6 @@
 [submodule "plugins/zsh-autosuggestions"]
 	path = plugins/zsh-autosuggestions
 	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "plugins/resty"]
+	path = plugins/resty
+	url = git@github.com:micha/resty.git
