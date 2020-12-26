@@ -1,0 +1,1 @@
+/Users/jasonkurian/.p10k.zsh
