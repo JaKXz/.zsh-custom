@@ -9,4 +9,4 @@
 	url = git@github.com:jakxz/spaceship-prompt.git
 [submodule "themes/powerlevel10k"]
 	path = themes/powerlevel10k
-	url = git@github.com:jakxz/powerlevel10k.git
+	url = git@github.com:romkatv/powerlevel10k.git
