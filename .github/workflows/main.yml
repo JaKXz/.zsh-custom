@@ -25,3 +25,4 @@ jobs:
           shellcheck_flags: --shell=bash
           # Report level for reviewdog [info,warning,error]
           level: warning
+          pattern: "*zsh"
