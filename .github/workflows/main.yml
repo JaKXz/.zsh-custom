@@ -20,7 +20,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Run shellcheck with reviewdog
-        uses: reviewdog/action-shellcheck@v1.0.0
+        uses: reviewdog/action-shellcheck@latest
         with:
           shellcheck_flags: --shell=bash
           # Report level for reviewdog [info,warning,error]
