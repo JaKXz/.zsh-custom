@@ -23,6 +23,4 @@ jobs:
         uses: reviewdog/action-shellcheck@v1.2.1
         with:
           shellcheck_flags: --shell=bash
-          # Report level for reviewdog [info,warning,error]
-          level: warning
           pattern: "*zsh"
