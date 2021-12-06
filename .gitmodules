@@ -4,9 +4,6 @@
 [submodule "plugins/resty"]
 	path = plugins/resty
 	url = git@github.com:micha/resty.git
-[submodule "themes/spaceship-prompt"]
-	path = themes/spaceship-prompt
-	url = git@github.com:jakxz/spaceship-prompt.git
 [submodule "themes/powerlevel10k"]
 	path = themes/powerlevel10k
 	url = git@github.com:romkatv/powerlevel10k.git
