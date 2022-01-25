@@ -1,6 +1,6 @@
 # Git
 alias gcb='git town prune-branches'
-alias gcm='(gco master || gco main || gco develop) && gupav'
+alias gcm='gco $(git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@") && gupav'
 
 alias st='open -a SourceTree .'
 alias gsa='git stash pop'
