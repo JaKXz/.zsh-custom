@@ -30,10 +30,10 @@
 
   prompt_my_node_version() {
      _p9k_cached_cmd 0 node --version && [[ $_p9k__ret == v?* ]] || return
-     [[ -f yarn.lock ]] && local yarnv="🧶"$(yarn -v)
-     [[ -f pnpm-lock.yaml ]] && local pnpmv="pnpm@"$(pnpm -v)
-     [[ -f package-lock.json ]] && local npmv="npm@"$(npm -v)
-     _p9k_prompt_segment "$0" "green" "white" 'NODE_ICON' 0 '' "${_p9k__ret#v} $yarnv$pnpmv$npmv"
+     [[ -f yarn.lock ]] && local yarnv=" 🧶"$(yarn -v)" "
+     [[ -f pnpm-lock.yaml ]] && local pnpmv=" pnpm@"$(pnpm -v)" "
+     [[ -f package-lock.json ]] && local npmv=" npm@"$(npm -v)" "
+     _p9k_prompt_segment "$0" "green" "white" 'NODE_ICON' 0 '' "${_p9k__ret#v}$yarnv$pnpmv$npmv"
   }
 
   prompt_my_ruby_version() {
@@ -107,8 +107,8 @@
     # ip                    # ip address and bandwidth usage for a specified network interface
     # public_ip             # public IP address
     # proxy                 # system-wide http/https/ftp proxy
-     battery               # internal battery
-     wifi                  # wifi speed
+    battery                 # internal battery
+    wifi                    # wifi speed
     time                    # current time
     # example               # example user-defined segment (see prompt_example function below)
   )
