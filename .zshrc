@@ -16,8 +16,6 @@ COMPLETION_WAITING_DOTS="true"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-SPACESHIP_CHAR_SUFFIX=" "
-SPACESHIP_TIME_SHOW=true
 
 ZSH_CUSTOM=~/code/.zsh-custom
 
@@ -33,7 +31,7 @@ plugins=(
   yarn
   resty
   zsh-autosuggestions
-#  docker-compose
+  pnpm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -52,3 +50,4 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/bit bit
 
 [[ -x /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
+[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
