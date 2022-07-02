@@ -16,8 +16,7 @@ COMPLETION_WAITING_DOTS="true"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-ZSH_CUSTOM=~/code/.zsh-custom
+ZSH_CUSTOM=/Users/jasonkurian/src/github.com/jakxz/.zsh-custom
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -42,7 +41,12 @@ export GPG_TTY=$(tty)
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+if [ -f /opt/dev/dev.sh ]; then
+  source /opt/dev/dev.sh
+elif [ -f ~/src/github.com/burke/minidev/dev.sh ]; then
+  source ~/src/github.com/burke/minidev/dev.sh
+fi
+
 if [ -e /Users/jasonkurian/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/jasonkurian/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 [[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
