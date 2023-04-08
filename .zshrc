@@ -10,6 +10,7 @@ export ZSH="$HOME/.oh-my-zsh"
 HYPHEN_INSENSITIVE="true"
 DISABLE_UPDATE_PROMPT="true"
 COMPLETION_WAITING_DOTS="true"
+OP_BIOMETRIC_UNLOCK_ENABLED=true
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
