@@ -25,7 +25,7 @@ ZSH_CUSTOM=$HOME/src/github.com/jakxz/.zsh-custom
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  ruby
+  node
   git
   brew
   yarn
