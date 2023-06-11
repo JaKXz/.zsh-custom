@@ -90,7 +90,6 @@ mas "Tailscale", id: 1475387142
 mas "Unsplash Wallpapers", id: 1284863847
 mas "Xcode", id: 497799835
 vscode "AndrewMcGoveran.react-component-generator"
-vscode "antfu.browse-lite"
 vscode "antfu.unocss"
 vscode "antfu.vite"
 vscode "astro-build.astro-vscode"
@@ -121,7 +120,6 @@ vscode "Orta.vscode-jest"
 vscode "phoenisx.cssvar"
 vscode "Prisma.prisma"
 vscode "redhat.vscode-yaml"
-vscode "Shopify.vscode-shadowenv"
 vscode "stylelint.vscode-stylelint"
 vscode "svelte.svelte-vscode"
 vscode "unifiedjs.vscode-mdx"
