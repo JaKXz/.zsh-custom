@@ -27,7 +27,6 @@ brew "mas"
 brew "mpv"
 brew "node"
 brew "node@18"
-# brew "openjdk"
 brew "p7zip"
 brew "pnpm"
 brew "postgresql@14", restart_service: true
@@ -41,7 +40,6 @@ brew "vale"
 brew "yarn"
 brew "youtube-dl"
 brew "zx"
-brew "dopplerhq/cli/doppler"
 brew "oven-sh/bun/bun"
 cask "1password"
 cask "1password-cli"
@@ -54,6 +52,7 @@ cask "docker"
 cask "figma"
 cask "flutter"
 cask "flux"
+cask "font-commit-mono"
 cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-patrick-hand"
@@ -66,8 +65,9 @@ cask "latest"
 cask "loom"
 cask "maccy"
 cask "macdown"
+cask "orbstack"
+cask "postico"
 cask "postman"
-cask "prisma-studio"
 cask "rectangle"
 cask "runjs"
 cask "slack"
@@ -75,9 +75,10 @@ cask "sourcetree"
 cask "spotify"
 cask "stats"
 cask "visual-studio-code"
-# cask "zoom"
+cask "warp"
+mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
-mas "Be Focused", id: 973134470
+mas "Be Focused Pro", id: 961632517
 mas "Capo", id: 696977615
 mas "GarageBand", id: 682658836
 mas "Hand Mirror", id: 1502839586
@@ -85,10 +86,10 @@ mas "Hidden Bar", id: 1452453066
 mas "Icon Fun", id: 1202847196
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
+mas "Mactracker", id: 430255202
 mas "Notability", id: 360593530
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "Sequel Ace", id: 1518036000
 mas "Steam Link", id: 1246969117
 mas "Tailscale", id: 1475387142
 mas "Unsplash Wallpapers", id: 1284863847
