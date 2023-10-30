@@ -27,6 +27,7 @@ brew "mas"
 brew "mpv"
 brew "node"
 brew "node@18"
+brew "openjdk"
 brew "p7zip"
 brew "pnpm"
 brew "postgresql@14", restart_service: true
@@ -40,6 +41,7 @@ brew "vale"
 brew "yarn"
 brew "youtube-dl"
 brew "zx"
+brew "dopplerhq/cli/doppler", link: false
 brew "oven-sh/bun/bun"
 cask "1password"
 cask "1password-cli"
@@ -47,6 +49,8 @@ cask "aerial"
 cask "appcleaner"
 cask "around"
 cask "couleurs"
+cask "cron"
+cask "cursor"
 cask "discord"
 cask "docker"
 cask "figma"
@@ -80,9 +84,9 @@ mas "1Password for Safari", id: 1569813296
 mas "Amphetamine", id: 937984704
 mas "Be Focused Pro", id: 961632517
 mas "Capo", id: 696977615
+mas "DaisyDisk", id: 411643860
 mas "GarageBand", id: 682658836
 mas "Hand Mirror", id: 1502839586
-mas "Hidden Bar", id: 1452453066
 mas "Icon Fun", id: 1202847196
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
@@ -131,5 +135,4 @@ vscode "svelte.svelte-vscode"
 vscode "unifiedjs.vscode-mdx"
 vscode "usama8800.tab-groups"
 vscode "waderyan.gitblame"
-vscode "wingrunr21.vscode-ruby"
 vscode "zhuangtongfa.material-theme"
