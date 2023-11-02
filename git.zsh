@@ -1,6 +1,6 @@
 # Git
-alias gcb='git fetch --prune --tags'
-alias gcm='gco $(git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@") && gupav && gcb'
+alias gcb='gfa --tags'
+alias gcm='gco $(git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@") && gprav && gcb'
 
 alias st='open -a SourceTree .'
 alias gsa='git stash pop'
