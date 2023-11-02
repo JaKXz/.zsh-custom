@@ -45,13 +45,10 @@ export EDITOR=vim
 
 if [ -f /opt/dev/dev.sh ]; then
   source /opt/dev/dev.sh
-elif [ -f ~/src/github.com/burke/minidev/dev.sh ]; then
-  source ~/src/github.com/burke/minidev/dev.sh
+elif [ -f ~/src/github.com/jakxz/minidev/dev.sh ]; then
+  source ~/src/github.com/jakxz/minidev/dev.sh
 fi
 
-if [ -e /Users/jasonkurian/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/jasonkurian/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
-[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/bit bit
 
