@@ -1,5 +1,4 @@
-# Git
-alias gcb='gfa --tags && git branch -vv | grep "gone]" | awk "{print $1}" | xargs git branch -D'
+alias gcb=$'gfa --tags && git branch -vv | grep "gone]" | awk \'{print $1}\' | xargs git branch -D'
 alias gcm='gco $(git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@") && gprav && gcb'
 
 alias st='open -a SourceTree .'
