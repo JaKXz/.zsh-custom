@@ -1,12 +1,12 @@
 [submodule "plugins/zsh-autosuggestions"]
 	path = plugins/zsh-autosuggestions
-	url = git@github.com:zsh-users/zsh-autosuggestions.git
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
 [submodule "plugins/resty"]
 	path = plugins/resty
-	url = git@github.com:micha/resty.git
+	url = https://github.com/micha/resty.git
 [submodule "themes/powerlevel10k"]
 	path = themes/powerlevel10k
-	url = git@github.com:romkatv/powerlevel10k.git
+	url = https://github.com/romkatv/powerlevel10k.git
 [submodule "plugins/pnpm"]
 	path = plugins/pnpm
 	url = https://github.com/ntnyq/omz-plugin-pnpm.git
