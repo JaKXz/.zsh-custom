@@ -1,6 +1,6 @@
-# my `$ZSH_CUSTOM` setup
+# my terminal + `$ZSH_CUSTOM` setup
 
-Proceed at your own risk.
+> Proceed at your own risk.
 
 ## 👋🏽 future me, run these commands
 
@@ -8,7 +8,12 @@ Proceed at your own risk.
 1. install https://brew.sh
 
 ```
-mkdir -pv ~/src/github.com/jakxz && cd $_
+brew install gh
+gh auth login
+```
+
+```
+mkdir -pv ~/src/jakxz && cd $_
 git clone https://github.com/JaKXz/minidev.git
 git clone https://github.com/JaKXz/.zsh-custom.git
 cd .zsh-custom
@@ -20,7 +25,11 @@ brew install --cask gpg-suite && brew bundle install
 ```
 cd ~
 mv .zshrc .zshrc-backup
-ln -s ~/src/github.com/jakxz/.zsh-custom/.zshrc .
-ln -s ~/src/github.com/jakxz/.zsh-custom/.p10k.zsh .
-gh auth login
+ln -s ~/src/jakxz/.zsh-custom/.zshrc .
+ln -s ~/src/jakxz/.zsh-custom/.p10k.zsh .
+```
+
+```
+dev config set default.account jakxz
+dev config set default.github_root ~/src
 ```

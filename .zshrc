@@ -17,7 +17,7 @@ OP_BIOMETRIC_UNLOCK_ENABLED=true
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
-ZSH_CUSTOM=$HOME/src/github.com/jakxz/.zsh-custom
+ZSH_CUSTOM=$HOME/src/jakxz/.zsh-custom
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -45,8 +45,8 @@ export EDITOR=vim
 
 if [ -f /opt/dev/dev.sh ]; then
   source /opt/dev/dev.sh
-elif [ -f ~/src/github.com/jakxz/minidev/dev.sh ]; then
-  source ~/src/github.com/jakxz/minidev/dev.sh
+elif [ -f ~/src/jakxz/minidev/dev.sh ]; then
+  source ~/src/jakxz/minidev/dev.sh
 fi
 
 autoload -U +X bashcompinit && bashcompinit
