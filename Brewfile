@@ -32,7 +32,6 @@ brew "prettyping"
 brew "procs"
 brew "redis", restart_service: true
 brew "ruby", link: true
-brew "tailscale"
 brew "tree"
 brew "vale"
 brew "yarn"
@@ -44,7 +43,6 @@ cask "1password"
 cask "1password-cli"
 cask "aerial"
 cask "appcleaner"
-cask "around"
 cask "couleurs"
 cask "cron"
 cask "cursor"
@@ -90,7 +88,6 @@ mas "Notability", id: 360593530
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Steam Link", id: 1246969117
-mas "Tailscale", id: 1475387142
 mas "Unsplash Wallpapers", id: 1284863847
 mas "Xcode", id: 497799835
 vscode "AndrewMcGoveran.react-component-generator"
