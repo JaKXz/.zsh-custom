@@ -4,8 +4,8 @@ alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
 alias l='ll'                                # Preferred 'ls' implementation
-alias ll='eza -lFabh --git --no-permissions --octal-permissions'
-alias ls='eza -Fa'
+alias ll='eza -labh --git --no-permissions --octal-permissions'
+alias ls='eza -a'
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
