@@ -1,4 +1,4 @@
-alias gcb=$'gfa --tags && git branch -vv | grep "gone]" | awk \'{print $1}\' | xargs git branch -D'
+alias gcb='git fetch --tags && (git branch -vv | grep -q "gone]" && git branch -vv | grep "gone]" | awk '\''{print $1}'\'' | xargs git branch -D || echo "No merged branches to delete.")'
 alias gcm='gco $(git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@") && gprav && gcb'
 
 alias st='open -a SourceTree .'
@@ -9,3 +9,4 @@ function gi() { curl -L -s https://www.gitignore.io/api/\$@ ;} # gi:Generate a g
 function gpu() { git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD); } # quickly create & push local branch on remote
 
 alias git-email='git config --local user.email JaKXz@users.noreply.github.com'
+
