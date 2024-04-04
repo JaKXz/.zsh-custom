@@ -1,4 +1,4 @@
-alias gcb='git fetch --tags && (git branch -vv | grep -q "gone]" && git branch -vv | grep "gone]" | awk '\''{print $1}'\'' | xargs git branch -D || echo "No merged branches to delete.")'
+alias gcb='gfa && (git branch -vv | grep -q "gone]" && git branch -vv | grep "gone]" | awk '\''{print $1}'\'' | xargs git branch -D || echo "No merged branches to delete.")'
 alias gcm='gco $(git symbolic-ref refs/remotes/origin/HEAD | sed "s@^refs/remotes/origin/@@") && gprav && gcb'
 
 alias st='open -a SourceTree .'
