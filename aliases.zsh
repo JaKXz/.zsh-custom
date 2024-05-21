@@ -1,4 +1,5 @@
 alias cat='bat'                             # colorized (syntax highlighted) cat
+alias dec='dev'
 alias ping='prettyping'
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
@@ -14,7 +15,7 @@ alias c='clear'                             # c:            Clear terminal displ
 alias which='type -a'                       # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
 
-alias port='lsof -t -i:$1'
+function port() { lsof -t -i:"$1"; }
 function mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
 function trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
 function ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
