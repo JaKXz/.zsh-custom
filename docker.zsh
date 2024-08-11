@@ -10,4 +10,14 @@ alias dockercleani='printf "\n>>> Deleting untagged images\n\n" && docker rmi $(
 
 # Delete all stopped containers and untagged images.
 alias dockerclean='dockercleanc || true && dockercleani'
-alias dockerps='python /usr/local/bin/docker-pretty-ps'
+
+docker() {
+  case $1 in
+    ps)
+      shift
+      command dops "$@"
+      ;;
+    *)
+      command docker "$@";;
+  esac
+}

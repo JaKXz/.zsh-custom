@@ -3,6 +3,7 @@ tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/services"
 tap "martido/graph"
+tap "mikescher/tap"
 tap "oven-sh/bun"
 tap "superfly/tap"
 brew "act"
@@ -52,6 +53,7 @@ brew "vale"
 brew "yarn"
 brew "zx"
 brew "dopplerhq/cli/doppler"
+brew "mikescher/tap/dops"
 brew "oven-sh/bun/bun"
 cask "1password"
 cask "1password-cli"
@@ -105,7 +107,7 @@ mas "Notability", id: 360593530
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Refined GitHub", id: 1519867270
-mas "Taska", id: 6463145233
+mas "Sequel Ace", id: 1518036000
 mas "Unsplash Wallpapers", id: 1284863847
 mas "Xcode", id: 497799835
 vscode "akamud.vscode-theme-onelight"
