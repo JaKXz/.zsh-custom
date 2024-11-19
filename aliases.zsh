@@ -8,7 +8,6 @@ alias l='ll'                                # Preferred 'ls' implementation
 alias ll='eza -labh --git --no-permissions --octal-permissions'
 alias ls='eza -a'
 alias less='less -FSRXc'                    # Preferred 'less' implementation
-
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ~="cd ~"                              # ~:            Go Home
 alias c='clear'                             # c:            Clear terminal display
