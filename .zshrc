@@ -31,7 +31,6 @@ plugins=(
   yarn
   resty
   zsh-autosuggestions
-  pnpm
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -39,6 +38,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 export GPG_TTY=$(tty)
 export EDITOR=vim
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
