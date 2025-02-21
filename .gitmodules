@@ -7,6 +7,3 @@
 [submodule "themes/powerlevel10k"]
 	path = themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
-[submodule "plugins/pnpm"]
-	path = plugins/pnpm
-	url = https://github.com/ntnyq/omz-plugin-pnpm.git
