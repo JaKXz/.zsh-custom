@@ -62,8 +62,8 @@
     virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
     anaconda                # conda environment (https://conda.io/)
     pyenv                   # python environment (https://github.com/pyenv/pyenv)
-    goenv                   # go environment (https://github.com/syndbg/goenv)
-    my_ruby_version
+    # goenv                   # go environment (https://github.com/syndbg/goenv)
+    # my_ruby_version
     my_node_version         # node.js version
     package               # name@version from package.json (https://docs.npmjs.com/files/package.json)
     go_version            # go version (https://golang.org)
