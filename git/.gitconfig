@@ -1,0 +1,113 @@
+[include]
+
+	# Include user-specific info like git credentials.
+	# path = ~/dotfiles/personal/.gitconfig
+
+[alias]
+
+  # Amend the currently staged files to the latest commit
+	amend = commit --amend --reuse-message=HEAD
+
+  # Append any staged files onto the most recent commit.
+	commend = commit --amend --no-edit
+
+  # Custom log formats
+	ll = !git --no-pager log --graph --all --decorate --pretty=format:'%C(auto)%h%d  %ad %C(red bold)(%ar%C(red bold))%Creset  %Creset%C(magenta)%an %Creset<%ae>  %C(white bold)%<(80,trunc)%s' --date=iso
+	l = !git --no-pager log -n 40 --graph --pretty=format:'%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(blue bold)<%an>%Creset'
+
+  # View the current working tree status using the short format
+	s = status -s
+
+  # Show verbose output about tags, branches or remotes
+	tags = tag -l
+	branches = branch -av
+	remotes = remote -v
+
+  # Remove branches that have already been merged with master
+	# a.k.a. ‘delete merged’
+	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+  # Forcepush, but fail if the remote has been updated since you last pulled.
+  # Prevents clobbering other people's commits on the same branch unless you really, really want to.
+  forcepush = push --force-with-lease
+
+[apply]
+
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
+
+[core]
+	# http://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/
+	eol = native
+	autocrlf = input
+	safecrlf = true
+	ignorecase = false
+	excludesfile = ~/.gitignore_global
+
+	# Make `git rebase` safer on OS X
+	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+	trustctime = false
+
+	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
+	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+	precomposeunicode = false
+
+[color "branch"]
+
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+
+	meta = yellow bold
+	frag = magenta bold # line info
+	old = red # deletions
+	new = green # additions
+
+[color "status"]
+
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[diff]
+
+	# Detect copies as well as renames
+	renames = copies
+	algorithm = patience
+
+[help]
+
+	# Automatically correct and execute mistyped commands. Keep this off unless you enjoy pain.
+	autocorrect = 0
+
+[pull]
+	# Prevent automatic creation of merge commits if the pull can't fast forward.
+	# If a pull fails because of this, you can retry it with `git pull --rebase` to rebase onto the new commits.
+	ff = only
+
+[rerere]
+	# https://git-scm.com/docs/git-rerere
+	# Reuse Recorded Resolution
+	# If you have a merge conflict, this setting will record how that conflict was resolved. If you would then need to
+	# resolve that same conflict in a future rebase, this setting will reuse your previously recorded conflict resolution.
+	enabled = true
+	autoupdate = true
+
+[push]
+	autoSetupRemote = true
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
+[commit]
+	gpgsign = true
+
+[user]
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA5WWneiXcg5MGOMa5hWfis2HzYpo8RurRnpRA1kSD6a
+	name = Jason Kurian
+	email = jasonk92@gmail.com

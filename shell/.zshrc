@@ -27,8 +27,6 @@ ZSH_CUSTOM=$HOME/src/jakxz/.zsh-custom
 plugins=(
   node
   git
-  brew
-  yarn
   resty
   zsh-autosuggestions
 )
@@ -43,21 +41,9 @@ export MANPAGER="less -R --use-color -Dd+r -Du+b"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-if [ -f /opt/dev/dev.sh ]; then
-  source /opt/dev/dev.sh
-elif [ -f ~/src/jakxz/minidev/dev.sh ]; then
-  source ~/src/jakxz/minidev/dev.sh
-fi
-
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/bit bit
 
-[[ -x /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
-[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# bun completions
-[ -s "/Users/jasonkurian/.bun/_bun" ] && source "/Users/jasonkurian/.bun/_bun"
+eval "$(brew shellenv)"
+eval "$(mise activate zsh)"
+eval "$(zoxide init zsh)"

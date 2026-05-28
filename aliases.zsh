@@ -1,3 +1,4 @@
+alias cd='z'
 alias cat='bat'                             # colorized (syntax highlighted) cat
 alias dec='dev'
 alias ping='prettyping'
