@@ -110,4 +110,8 @@
 [user]
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA5WWneiXcg5MGOMa5hWfis2HzYpo8RurRnpRA1kSD6a
 	name = Jason Kurian
-	email = jasonk92@gmail.com
+	email = JaKXz@users.noreply.github.com
+
+[include]
+	# Include user-specific info like git credentials.
+	path = ~/.gitconfig_extra

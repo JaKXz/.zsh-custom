@@ -14,10 +14,8 @@ gh auth login
 
 ```
 mkdir -pv ~/src/jakxz && cd $_
-git clone https://github.com/JaKXz/.zsh-custom.git
+git clone --recurse-submodules https://github.com/JaKXz/.zsh-custom.git
 cd .zsh-custom
-git submodule init
-git submodule update
 brew install --cask gpg-suite && brew bundle install
 ```
 
