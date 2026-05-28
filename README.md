@@ -17,12 +17,7 @@ mkdir -pv ~/src/jakxz && cd $_
 git clone --recurse-submodules https://github.com/JaKXz/.zsh-custom.git
 cd .zsh-custom
 brew install --cask gpg-suite && brew bundle install
-```
-
-```
-cd ~
-mv .zshrc .zshrc-backup
-stow -v git -t ~
-stow -v shell -t ~
-stow -v mpv -t ~
+for folder in $(find . -type d -maxdepth 1 -not -name ".git" -not -name "themes" -not -name "plugins" -not -name "." | cut -c3-); do
+  stow -v $folder -t ~
+done
 ```
