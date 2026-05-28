@@ -24,7 +24,7 @@ brew install --cask gpg-suite && brew bundle install
 ```
 cd ~
 mv .zshrc .zshrc-backup
-stow git
-stow shell
-stow mpv
+stow -v git -t ~
+stow -v shell -t ~
+stow -v mpv -t ~
 ```
