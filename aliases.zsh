@@ -1,13 +1,11 @@
 alias cd='z'
 alias cat='bat'                             # colorized (syntax highlighted) cat
-alias dec='dev'
 alias ping='prettyping'
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
 alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
 alias l='ll'                                # Preferred 'ls' implementation
 alias ll='eza -labh --git --no-permissions --octal-permissions'
-alias ls='eza -a'
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
 alias ~="cd ~"                              # ~:            Go Home
