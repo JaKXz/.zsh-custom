@@ -9,6 +9,7 @@ brew "gh"
 brew "git-interactive-rebase-tool"
 brew "git-recent"
 brew "hyperfine"
+brew "jq"
 brew "mas"
 brew "mise"
 brew "mpv"
@@ -23,6 +24,7 @@ brew "mikescher/tap/dops"
 cask "1password"
 cask "1password-cli"
 cask "appcleaner"
+cask "couleurs"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-monaspace"
 cask "font-victor-mono"
@@ -33,8 +35,8 @@ cask "signal"
 cask "zed"
 cask "zen"
 mas "1Password for Safari", id: 1569813296
+mas "Aeroplan Shopping Button", id: 6443815835
 mas "Amphetamine", id: 937984704
 mas "Focus Matrix", id: 1087284172
 mas "Hand Mirror", id: 1502839586
 mas "uBlock Origin Lite", id: 6745342698
-mas "whitelabel-shopping-button", id: 6443815835
