@@ -13,11 +13,6 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore uploaded files in development.
-/storage/*
-!/storage/.keep
-
-/public/assets
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
@@ -26,6 +21,7 @@
 ### macOS ###
 # General
 .DS_Store
+.ds_store_idea
 .AppleDouble
 .LSOverride
 
@@ -52,7 +48,10 @@ Temporary Items
 # iCloud generated files
 *.icloud
 
+.idea
+
 ### Node ###
+.env
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

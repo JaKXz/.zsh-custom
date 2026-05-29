@@ -1,7 +1,3 @@
-# [include]
-	# Include user-specific info like git credentials.
-	# path = ~/dotfiles/personal/.gitconfig
-
 [alias]
 
   # Amend the currently staged files to the latest commit
@@ -35,22 +31,6 @@
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
 
-[core]
-	# http://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/
-	eol = native
-	autocrlf = input
-	safecrlf = true
-	ignorecase = false
-	excludesfile = ~/.gitignore_global
-
-	# Make `git rebase` safer on OS X
-	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
-	trustctime = false
-
-	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
-	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
-	precomposeunicode = false
-
 [color "branch"]
 
 	current = yellow reverse
@@ -70,21 +50,65 @@
 	changed = green
 	untracked = cyan
 
+[commit]
+	gpgsign = true
+
+[core]
+	# http://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/
+	eol = native
+	autocrlf = input
+	safecrlf = true
+	ignorecase = false
+	excludesfile = ~/.gitignore_global
+
+	# Make `git rebase` safer on OS X
+	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+	trustctime = false
+
+	# Prevent showing files whose names contain non-ASCII symbols as unversioned.
+	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
+	precomposeunicode = false
+
 [diff]
 
 	# Detect copies as well as renames
 	renames = copies
 	algorithm = patience
 
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+
 [help]
 
 	# Automatically correct and execute mistyped commands. Keep this off unless you enjoy pain.
 	autocorrect = 0
 
+[include]
+	# Include user-specific info like git credentials.
+	path = ~/.gitconfig_extra
+
+[init]
+	defaultBranch = main
+
 [pull]
 	# Prevent automatic creation of merge commits if the pull can't fast forward.
 	# If a pull fails because of this, you can retry it with `git pull --rebase` to rebase onto the new commits.
 	ff = only
+
+[push]
+	autoSetupRemote = true
+
+[rebase]
+	autosquash = true
 
 [rerere]
 	# https://git-scm.com/docs/git-rerere
@@ -94,17 +118,8 @@
 	enabled = true
 	autoupdate = true
 
-[push]
-	autoSetupRemote = true
-
-[gpg]
-	format = ssh
-
-[gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
-
-[commit]
-	gpgsign = true
+[sequence]
+	editor = interactive-rebase-tool
 
 [user]
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA5WWneiXcg5MGOMa5hWfis2HzYpo8RurRnpRA1kSD6a
