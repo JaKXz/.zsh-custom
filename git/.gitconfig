@@ -1,5 +1,4 @@
-[include]
-
+# [include]
 	# Include user-specific info like git credentials.
 	# path = ~/dotfiles/personal/.gitconfig
 

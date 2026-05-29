@@ -44,6 +44,6 @@ export MANPAGER="less -R --use-color -Dd+r -Du+b"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/bit bit
 
-eval "$(brew shellenv)"
+# eval "$(brew shellenv zsh)"
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
