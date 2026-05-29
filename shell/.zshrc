@@ -44,6 +44,9 @@ export MANPAGER="less -R --use-color -Dd+r -Du+b"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/bit bit
 
-# eval "$(brew shellenv zsh)"
+# https://docs.brew.sh/FAQ#why-should-i-install-homebrew-in-the-default-location
+[[ -x /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+[[ -x /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
+[[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
 eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
