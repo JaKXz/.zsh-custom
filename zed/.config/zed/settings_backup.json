@@ -1,0 +1,134 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "ui_font_family": ".ZedSans",
+  "vertical_scroll_margin": 10.0,
+  "icon_theme": "JetBrains New UI Icons (Dark)",
+  "theme": "Xcode Default Darker",
+  "prettier": {
+    "allowed": true,
+  },
+  "show_edit_predictions": true,
+  "base_keymap": "JetBrains",
+  "scroll_beyond_last_line": "vertical_scroll_margin",
+  "edit_predictions": {
+    "provider": "copilot",
+    "disabled_globs": [],
+    "mode": "subtle",
+    "copilot": {
+      "enable_next_edit_suggestions": false,
+      "proxy": null,
+      "proxy_no_verify": null,
+      "enterprise_uri": null,
+    },
+    "enabled_in_text_threads": false,
+  },
+  "file_types": {
+    "GitHub Actions": [".github/**/*.yml", ".github/**/*.yaml"],
+  },
+  "title_bar": {
+    "show_branch_icon": true, // Show/hide branch icon beside branch switcher
+    "show_branch_name": true, // Show/hide branch name
+    "show_project_items": true, // Show/hide project host and name
+    "show_onboarding_banner": false, // Show/hide onboarding banners
+    "show_user_picture": false, // Show/hide user avatar
+    "show_sign_in": false, // Show/hide sign-in button
+    "show_menus": true, // Show/hide menus
+  },
+  "agent": {
+    "favorite_models": [
+      {
+        "provider": "copilot_chat",
+        "model": "claude-opus-4.5",
+      },
+    ],
+    "dock": "right",
+    "default_profile": "write",
+    "always_allow_tool_actions": true,
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-opus-4.5",
+    },
+  },
+  "project_panel": {
+    "dock": "right",
+  },
+  "indent_guides": {
+    "line_width": 1,
+    "active_line_width": 2,
+    "coloring": "indent_aware",
+    "background_coloring": "indent_aware",
+  },
+  "ui_font_size": 17,
+  // "buffer_font_size": 17,
+  "buffer_font_family": "Monaspace Neon",
+  "buffer_font_features": {
+    "liga": true,
+    "calt": true,
+    "ss01": true,
+    "ss02": true,
+    "ss03": true,
+    "ss04": true,
+    "ss05": true,
+    "ss06": true,
+    "ss07": true,
+    "ss08": true,
+    "ss09": true,
+    "ss10": true,
+    "ss11": true,
+    "ss12": true,
+  },
+  "terminal": {
+    "font_family": "JetBrainsMono Nerd Font",
+  },
+  "load_direnv": "shell_hook",
+  "lsp": {
+    // "rust-analyzer": {
+    //   "initialization_options": {
+    //     // "cargo": {},
+    //     "check": {
+    //       "overrideCommand": [
+    //         "./tools/with-wasm-env",
+    //         "cargo",
+    //         "clippy",
+    //         "--target=wasm32-unknown-unknown",
+    //         // "--features",
+    //         // "item-details,masked-email,totp,brex,b5x",
+    //         "--all-features",
+    //         "--message-format=json",
+    //         "-p",
+    //         "op-wasm-b5x"
+    //       ]
+    //     }
+    //   }
+    // },
+    "vtsls": {
+      "settings": {
+        "typescript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+        "javascript": {
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+      },
+      "enable_lsp_tasks": true,
+    },
+    "yaml-language-server": {
+      "settings": {
+        "yaml": {
+          "customTags": ["!reference sequence"],
+        },
+      },
+    },
+  },
+}

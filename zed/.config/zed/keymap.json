@@ -1,0 +1,42 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-2": "terminal_panel::ToggleFocus",
+      "cmd-2": "workspace::ToggleBottomDock",
+      "ctrl-`": "theme_selector::Toggle",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-t": "workspace::NewTerminal",
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "cmd-[": "pane::GoBack",
+      "cmd-]": "pane::GoForward",
+      "alt-a": "pane::SplitAndMoveLeft",
+      "alt-s": "pane::SplitAndMoveDown",
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "cmd-.": "editor::ToggleFold",
+      "ctrl-v 5": "git::Blame",
+      "cmd-shift-up": "editor::MoveLineUp",
+      "alt-enter": "editor::ToggleCodeActions",
+      "ctrl-alt-o": "editor::OrganizeImports",
+      "cmd-]": "pane::GoForward",
+      "cmd-[": "pane::GoBack",
+    },
+  },
+  {
+    "bindings": {
+      "cmd-shift-c": null,
+    },
+  },
+]

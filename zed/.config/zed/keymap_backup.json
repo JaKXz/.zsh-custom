@@ -1,0 +1,52 @@
+[
+  // {
+  //   "context": "Editor",
+  //   "bindings": {
+  //     "alt-a": "pane::SplitLeft",
+  //     "alt-s": "pane::SplitDown",
+  //     "cmd-2": "workspace::ToggleBottomDock",
+  //     "cmd-1": "workspace::ToggleRightDock",
+  //     "cmd-.": "editor::Fold",
+  //     "cmd-.": "editor::UnfoldLines"
+  //   }
+  // }
+  {
+    "bindings": {
+      "cmd-2": "workspace::ToggleBottomDock",
+      "cmd-s": "workspace::SaveAll",
+      "ctrl-r": "task::Rerun",
+      "cmd-[": "pane::GoBack",
+      "cmd-]": "pane::GoForward",
+      "cmd-shift-o": "file_finder::Toggle",
+      "cmd-shift-r": [
+        "project_search::ToggleFocus",
+        { "replace_enabled": true }
+      ],
+      "cmd-6": "diagnostics::Deploy"
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-c": "editor::CopyPath",
+      "shift-ctrl-g": "assistant::ToggleFocus",
+      "cmd-g": "search::SelectNextMatch",
+      "cmd-shift-g": "search::SelectPrevMatch",
+      "cmd-d": "editor::DuplicateLineDown",
+      "shift-cmd-up": "editor::MoveLineUp",
+      "shift-cmd-down": "editor::MoveLineDown",
+      "cmd-b": "editor::GoToDefinition",
+      "ctrl-g": ["editor::SelectNext", { "replace_newest": false }],
+      "cmd-ctrl-g": "editor::SelectAllMatches",
+      "cmd-l": "go_to_line::Toggle",
+      "cmd-alt-l": "editor::Format",
+      "alt-enter": "editor::ToggleCodeActions"
+    }
+  },
+  {
+    "context": "Editor && mode == full",
+    "bindings": {
+      "cmd-l": "go_to_line::Toggle"
+    }
+  }
+]
