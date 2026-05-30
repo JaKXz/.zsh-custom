@@ -118,6 +118,3 @@
 [include]
 	# Include user-specific info like git credentials.
 	path = ~/.gitconfig_extra
-
-[sequence]
-	editor = interactive-rebase-tool
