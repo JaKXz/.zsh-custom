@@ -59,13 +59,14 @@
       "proxy_no_verify": null,
       "enterprise_uri": null,
     },
-    "enabled_in_text_threads": false,
   },
   "file_types": {
-    "GitHub Actions": [".github/**/*.yml", ".github/**/*.yaml"],
+    "GitHub Actions": [
+      ".github/**/*.yml",
+      ".github/**/*.yaml"
+    ],
   },
   "title_bar": {
-    "show_branch_icon": true, // Show/hide branch icon beside branch switcher
     "show_branch_name": true, // Show/hide branch name
     "show_project_items": true, // Show/hide project host and name
     "show_onboarding_banner": false, // Show/hide onboarding banners
@@ -83,11 +84,6 @@
         "model": "claude-opus-4.6",
         "enable_thinking": true
       },
-      {
-        "provider": "ollama",
-        "model": "gemma4:31b",
-        "enable_thinking": false
-      }
     ],
     "dock": "right",
     "default_profile": "write",
@@ -168,7 +164,9 @@
     "yaml-language-server": {
       "settings": {
         "yaml": {
-          "customTags": ["!reference sequence"],
+          "customTags": [
+            "!reference sequence"
+          ],
         },
       },
     },
