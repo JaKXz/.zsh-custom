@@ -40,11 +40,6 @@
 	old = red # deletions
 	new = green # additions
 
-[color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
-
 [commit]
 	gpgsign = true
 
