@@ -59,10 +59,6 @@ if [ -f /etc/zsh_command_not_found ]; then
   . /etc/zsh_command_not_found
 fi
 
-if command -v zellij &> /dev/null; then
-  eval "$(zellij setup --generate-auto-start zsh)"
-fi
-
 if command -v fzf &> /dev/null; then
   source <(fzf --zsh)
 fi
