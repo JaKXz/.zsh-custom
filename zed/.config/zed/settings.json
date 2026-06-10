@@ -7,7 +7,6 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  // "ui_font_family": ".ZedSans",
   "cli_default_open_behavior": "new_window",
   "outline_panel": {
     "dock": "left"
@@ -40,8 +39,8 @@
   // "icon_theme": "JetBrains New UI Icons (Dark)",
   "theme": {
     "mode": "system",
-    "light": "Xcode Classic Light",
-    "dark": "Xcode Default Dark"
+    "light": "Tokyo Night Light",
+    "dark": "Tokyo Night"
   },
   "prettier": {
     "allowed": false,
@@ -103,8 +102,8 @@
     "coloring": "indent_aware",
     "background_coloring": "indent_aware",
   },
-  "ui_font_size": 17,
-  "buffer_font_size": 17,
+  // "ui_font_size": 17,
+  // "buffer_font_size": 17,
   // "buffer_font_family": "Monaspace Neon",
   "buffer_font_features": {
     "liga": true,
