@@ -53,5 +53,24 @@ complete -o nospace -C /usr/local/bin/bit bit
 [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]] && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 [[ -x /usr/local/bin/brew ]] && eval $(/usr/local/bin/brew shellenv)
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
-eval "$(mise activate zsh)"
-eval "$(zoxide init zsh)"
+
+# enable command-not-found if installed
+if [ -f /etc/zsh_command_not_found ]; then
+  . /etc/zsh_command_not_found
+fi
+
+if command -v zellij &> /dev/null; then
+  eval "$(zellij setup --generate-auto-start zsh)"
+fi
+
+if command -v fzf &> /dev/null; then
+  source <(fzf --zsh)
+fi
+
+if command -v mise &> /dev/null; then
+  eval "$(mise activate zsh)"
+fi
+
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
