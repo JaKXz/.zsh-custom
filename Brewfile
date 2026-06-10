@@ -33,6 +33,7 @@ cask "gpg-suite"
 cask "maccy"
 cask "rectangle"
 cask "signal"
+cask "wezterm"
 cask "zed"
 cask "zen"
 mas "1Password for Safari", id: 1569813296
