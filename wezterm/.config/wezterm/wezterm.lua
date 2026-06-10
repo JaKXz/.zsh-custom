@@ -23,6 +23,7 @@ local zellij = first_existing_path({
 -- this repo, so font_size is intentionally left unset here.
 config.term = "xterm-256color"
 config.default_prog = { zellij }
+config.color_scheme = 'Tokyo Night'
 
 config.window_padding = {
   left = 16,
