@@ -29,6 +29,7 @@
   autoload -Uz is-at-least && is-at-least 5.1 || return
 
   function prompt_my_node_version() {
+    (( ! ${+commands[node]} )) && return
     [[ -f yarn.lock ]] && local yarnv=" 🧶"$(yarn -v)
     [[ -f pnpm-lock.yaml ]] && local pnpmv=" pnpm@"$(pnpm -v)
     [[ -f package-lock.json ]] && local npmv=" npm@"$(npm -v)
