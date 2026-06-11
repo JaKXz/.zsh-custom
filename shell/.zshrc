@@ -34,6 +34,7 @@ plugins=(
   git
   resty
   zsh-autosuggestions
+  gh
 )
 
 source $ZSH/oh-my-zsh.sh
