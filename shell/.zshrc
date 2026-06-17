@@ -30,7 +30,7 @@ ZSH_CUSTOM=$HOME/src/jakxz/.zsh-custom
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  node
+  jj
   git
   resty
   zsh-autosuggestions
