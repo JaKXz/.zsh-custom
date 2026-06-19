@@ -1,0 +1,29 @@
+[editor.statusline]
+right = [
+  "diagnostics",
+  "selections",
+  "register",
+  "position",
+  "position-percentage",
+  "file-encoding",
+]
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[keys.normal]
+esc = ["keep_primary_selection", "collapse_selection"]
+
+[editor.file-picker]
+hidden = true
+git-ignore = true
+
+[editor.soft-wrap]
+enable = true
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+
