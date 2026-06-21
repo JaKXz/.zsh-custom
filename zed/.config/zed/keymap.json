@@ -39,4 +39,10 @@
       "cmd-shift-c": null,
     },
   },
+  {
+    "context": "Editor",
+    "unbind": {
+      "cmd--": "editor::Fold"
+    }
+  }
 ]
