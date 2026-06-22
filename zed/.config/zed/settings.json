@@ -124,7 +124,7 @@
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font",
   },
-  "load_direnv": "shell_hook",
+  // "load_direnv": "shell_hook",
   "lsp": {
     // "rust-analyzer": {
     //   "initialization_options": {
