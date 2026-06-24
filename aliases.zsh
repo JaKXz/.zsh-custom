@@ -8,11 +8,20 @@ alias l='ll'                                # Preferred 'ls' implementation
 alias ll='eza -labh --git --no-permissions --octal-permissions'
 alias less='less -FSRXc'                    # Preferred 'less' implementation
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
-# alias ~="cd ~"                              # ~:            Go Home
 alias c='clear'                             # c:            Clear terminal display
 alias which='type -a'                       # which:        Find executables
 alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
+# alias dig='dig +nocmd any +multiline +noall +answer'
 alias sp='sudo purge'
+# Intuitive map function
+# For example, to list all directories that contain a certain file:
+# find . -name .gitattributes | map dirname
+alias map='xargs -n1'
+
+# Change working directory to the top-most Finder window location
+function cdf() { # short for `cdfinder`
+	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
+}
 
 function port() { lsof -t -i:"$1"; }
 function mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
