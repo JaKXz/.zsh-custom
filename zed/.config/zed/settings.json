@@ -39,7 +39,7 @@
   // "icon_theme": "JetBrains New UI Icons (Dark)",
   "theme": {
     "mode": "system",
-    "light": "Tokyo Night Light",
+    "light": "Night Owl Dark",
     "dark": "Tokyo Night"
   },
   "prettier": {
