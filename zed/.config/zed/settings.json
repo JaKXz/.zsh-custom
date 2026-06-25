@@ -29,14 +29,8 @@
   "calls": {
     "mute_on_join": true
   },
-  "icon_theme": {
-    "mode": "system",
-    "light": "JetBrains New UI Icons (Light)",
-    "dark": "Zed (Default)"
-  },
   "tab_size": 2,
   "vertical_scroll_margin": 10.0,
-  // "icon_theme": "JetBrains New UI Icons (Dark)",
   "theme": {
     "mode": "system",
     "light": "Night Owl Dark",
