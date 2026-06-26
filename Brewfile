@@ -40,5 +40,4 @@ mas "1Password for Safari", id: 1569813296
 mas "Aeroplan Shopping Button", id: 6443815835
 mas "Amphetamine", id: 937984704
 mas "Focus Matrix", id: 1087284172
-mas "Hand Mirror", id: 1502839586
 mas "uBlock Origin Lite", id: 6745342698
