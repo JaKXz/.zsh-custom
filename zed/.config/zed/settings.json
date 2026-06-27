@@ -78,7 +78,7 @@
         "enable_thinking": true
       },
     ],
-    "dock": "right",
+    "dock": "left",
     "default_profile": "write",
     "default_model": {
       "effort": "high",
@@ -117,6 +117,9 @@
   },
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font",
+    "line_height": {
+      "custom": 1.61803398875
+    }
   },
   // "load_direnv": "shell_hook",
   "lsp": {
