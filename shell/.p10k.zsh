@@ -45,6 +45,7 @@
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     dir                     # current directory
+    jj                      # jj (Jujutsu) status — see prompt_jj below
     vcs                     # git status
     newline
     prompt_char             # prompt symbol
@@ -1547,6 +1548,72 @@
   # User-defined prompt segments can be customized the same way as built-in segments.
   # typeset -g POWERLEVEL9K_EXAMPLE_FOREGROUND=208
   # typeset -g POWERLEVEL9K_EXAMPLE_VISUAL_IDENTIFIER_EXPANSION='⭐'
+
+  #############################[ jj: Jujutsu VCS ]############################
+  # Custom segment for jj, built on the oh-my-zsh `jj` plugin. Requires the
+  # `jj` plugin in your omz plugins=(...) list (provides __jj_prompt_jj, which
+  # honors the ignore-working-copy zstyle below). Add `jj` to *_PROMPT_ELEMENTS.
+
+  # Don't let prompt rendering snapshot the working copy: fast + no side effects.
+  # Trade-off: the prompt reflects the last *snapshotted* state, so brand-new
+  # unsaved edits show up only after the next real `jj` command. Worth it.
+  zstyle ':omz:plugins:jj' ignore-working-copy true
+
+  function prompt_jj() {
+    emulate -L zsh
+
+    # Cheap bail-out: walk up for a .jj dir WITHOUT spawning jj. Outside a jj
+    # repo this segment costs nothing (the builtin `vcs` segment handles git).
+    local dir=$PWD
+    while [[ -n $dir && ! -d $dir/.jj ]]; do dir=${dir%/*}; done
+    [[ -d $dir/.jj ]] || return
+
+    # Fallback if the omz jj plugin isn't loaded for some reason.
+    if (( ! $+functions[__jj_prompt_jj] )); then
+      function __jj_prompt_jj() { command jj --no-pager --ignore-working-copy "$@" }
+    fi
+
+    # ONE jj call: a line for @ (working copy) + a line for nearest bookmark.
+    local raw
+    raw=$(__jj_prompt_jj log --no-graph --color never \
+      -r '@ | heads(::@ & bookmarks())' \
+      -T 'if(current_working_copy,"@","b") ++ "\t" ++ change_id.shortest(4) ++ "\t" ++ bookmarks ++ "\t" ++ if(empty,"e") ++ if(conflict,"x") ++ if(divergent,"!") ++ "\n"' \
+      2>/dev/null) || return
+
+    local line cid bookmark flags
+    local -a parts
+    while IFS= read -r line; do
+      IFS=$'\t' read -rA parts <<< "$line"
+      if [[ ${parts[1]} == '@' ]]; then
+        cid=${parts[2]}; flags=${parts[4]:-}
+        [[ -n ${parts[3]:-} ]] && bookmark=${parts[3]}   # @ may itself hold a bookmark
+      else
+        [[ -z ${bookmark:-} ]] && bookmark=${parts[3]:-}
+      fi
+    done <<< "$raw"
+
+    local text="${bookmark:-(detached)} @${cid}"
+    [[ $flags == *e* ]]   && text+=' ○'   # empty change
+    [[ $flags == *x* ]]   && text+=' ✘'   # conflict
+    [[ $flags == *'!'* ]] && text+=' ⇕'   # divergent change-id
+    text=${text//\%/%%}                    # escape % for the prompt
+
+    local color=99                          # jj purple
+    [[ $flags == *x* ]] && color=160        # red on conflict
+    p10k segment -f $color -i 'jj' -t "$text"
+  }
+
+  # Instant-prompt variant: must be side-effect-free and make the SAME segment
+  # calls regardless of environment. We can't run jj here (instant prompt fires
+  # before the shell is ready), so render a neutral placeholder; the real
+  # prompt_jj replaces it a moment later. If you'd rather show nothing during
+  # instant prompt, delete this function entirely.
+  function instant_prompt_jj() {
+    emulate -L zsh
+    local dir=$PWD
+    while [[ -n $dir && ! -d $dir/.jj ]]; do dir=${dir%/*}; done
+    [[ -d $dir/.jj ]] && p10k segment -f 99 -i 'jj' -t '…'
+  }
 
   # Transient prompt works similarly to the builtin transient_rprompt option. It trims down prompt
   # when accepting a command line. Supported values:
