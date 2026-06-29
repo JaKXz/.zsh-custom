@@ -18,6 +18,8 @@ config.window_background_opacity = 0.98
 
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono")
 
+config.line_height = 1.1
+
 config.keys = {
   {
     key = "d",
