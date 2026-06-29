@@ -1592,14 +1592,36 @@
       fi
     done <<< "$raw"
 
-    local text="${bookmark:-(detached)} @${cid}"
-    [[ $flags == *e* ]]   && text+=' ○'   # empty change
-    [[ $flags == *x* ]]   && text+=' ✘'   # conflict
-    [[ $flags == *'!'* ]] && text+=' ⇕'   # divergent change-id
-    text=${text//\%/%%}                    # escape % for the prompt
+    # Ahead/behind of the bookmark vs its @origin remote: two tiny revset
+    # queries (only when a bookmark exists). Referencing <name>@origin works
+    # whether or not the bookmark is tracked. If there's no remote counterpart
+    # yet (unpushed branch) the first query exits non-zero -> mark local-only.
+    local ahead=0 behind=0 noremote=0 primary=${bookmark%% *}
+    if [[ -n $primary ]]; then
+      local a b
+      a=$(__jj_prompt_jj log --no-graph --color never -T '"."' \
+        -r "${primary}@origin..${primary}" 2>/dev/null)
+      if (( $? )); then
+        noremote=1
+      else
+        b=$(__jj_prompt_jj log --no-graph --color never -T '"."' \
+          -r "${primary}..${primary}@origin" 2>/dev/null)
+        ahead=${#a} behind=${#b}
+      fi
+    fi
 
-    local color=99                          # jj purple
-    [[ $flags == *x* ]] && color=160        # red on conflict
+    local text="${bookmark:-(detached)} @${cid}"
+    [[ $flags == *e* ]]   && text+=' ○'        # empty change
+    [[ $flags == *x* ]]   && text+=' ✘'        # conflict
+    [[ $flags == *'!'* ]] && text+=' ⇕'        # divergent change-id
+    (( ahead ))           && text+=" ⇡${ahead}"   # local commits not on @origin
+    (( behind ))          && text+=" ⇣${behind}"  # @origin commits not local
+    (( noremote ))        && text+=' ⇡?'       # bookmark has no @origin yet (unpushed)
+    text=${text//\%/%%}                          # escape % for the prompt
+
+    local color=99                               # jj purple
+    (( behind ))         && color=178            # yellow: remote has commits you lack
+    [[ $flags == *x* ]]  && color=160            # red on conflict (wins)
     p10k segment -f $color -i 'jj' -t "$text"
   }
 
