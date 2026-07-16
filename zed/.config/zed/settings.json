@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "format_on_save": "on",
   "use_system_window_tabs": false,
   "tab_bar": {
     "show_pinned_tabs_in_separate_row": true
@@ -40,8 +41,8 @@
   "tab_size": 2,
   "vertical_scroll_margin": 10.0,
   "theme": {
-    "mode": "system",
-    "light": "Xcode Sunset",
+    "mode": "dark",
+    "light": "Xcode Default Dark",
     "dark": "Tokyo Night"
   },
   "prettier": {
@@ -177,6 +178,17 @@
   },
   "languages": {
     "JavaScript": {
+      "formatter": {
+        "external": {
+          "command": "node_modules/.bin/prettier",
+          "arguments": [
+            "--stdin-filepath",
+            "{buffer_path}"
+          ]
+        }
+      }
+    },
+    "TypeScript": {
       "formatter": {
         "external": {
           "command": "node_modules/.bin/prettier",
