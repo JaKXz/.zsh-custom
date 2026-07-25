@@ -26,12 +26,6 @@
   "git_panel": {
     "dock": "left"
   },
-  "language_models": {
-    "ollama": {
-      "api_url": "http://127.0.0.1:11434/"
-    }
-  },
-  "proxy": "",
   "debugger": {
     "dock": "left"
   },
@@ -75,26 +69,6 @@
     "show_user_picture": false, // Show/hide user avatar
     "show_sign_in": false, // Show/hide sign-in button
     "show_menus": true, // Show/hide menus
-  },
-  "agent": {
-    "tool_permissions": {
-      "default": "allow",
-    },
-    "favorite_models": [
-      {
-        "provider": "copilot_chat",
-        "model": "claude-opus-4.6",
-        "enable_thinking": true
-      },
-    ],
-    "dock": "left",
-    "default_profile": "write",
-    "default_model": {
-      "effort": "high",
-      "enable_thinking": true,
-      "provider": "copilot_chat",
-      "model": "gpt-5.4",
-    },
   },
   "project_panel": {
     "dock": "right",
