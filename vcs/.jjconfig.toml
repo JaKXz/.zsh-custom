@@ -1,0 +1,9 @@
+# https://github.com/jj-vcs/jj/blob/main/docs/config.md#user-config-files
+[user]
+name = "Jason Kurian"
+
+[signing]
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKCyI2Yz/DHSH0/aSMUcf+b9GJB5ylr+lYCl3SPRdCn4"
+backend = "ssh"
+behavior = "own"
+sign-all = true

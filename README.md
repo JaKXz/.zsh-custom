@@ -21,3 +21,10 @@ for folder in $(find . -type d -maxdepth 1 -not -name ".git" -not -name "themes"
   stow -v $folder -t ~
 done
 ```
+
+### Extra env
+
+- [macOS](https://0xmachos.com/2021-05-13-zsh-path-macos/)
+  ```
+  touch ~/.zshenv
+  ```

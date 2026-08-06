@@ -37,7 +37,7 @@
   "vertical_scroll_margin": 10.0,
   "theme": {
     "mode": "system",
-    "light": "Tokyo Night Storm",
+    "light": "Night Owl Light",
     "dark": "Tokyo Night",
   },
   "show_edit_predictions": true,
