@@ -7,40 +7,38 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "formatter": "auto",
   "format_on_save": "on",
   "use_system_window_tabs": false,
   "tab_bar": {
-    "show_pinned_tabs_in_separate_row": true
+    "show_pinned_tabs_in_separate_row": true,
   },
   "tabs": {
     "git_status": true,
-    "file_icons": true
+    "file_icons": true,
   },
   "cli_default_open_behavior": "new_window",
   "outline_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "git_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "debugger": {
-    "dock": "left"
+    "dock": "left",
   },
   "calls": {
-    "mute_on_join": true
+    "mute_on_join": true,
   },
   "tab_size": 2,
   "vertical_scroll_margin": 10.0,
   "theme": {
-    "mode": "dark",
-    "light": "Xcode Default Dark",
-    "dark": "Tokyo Night"
-  },
-  "prettier": {
-    "allowed": false,
+    "mode": "system",
+    "light": "Tokyo Night Storm",
+    "dark": "Tokyo Night",
   },
   "show_edit_predictions": true,
   "base_keymap": "JetBrains",
@@ -57,10 +55,7 @@
     },
   },
   "file_types": {
-    "GitHub Actions": [
-      ".github/**/*.yml",
-      ".github/**/*.yaml"
-    ],
+    "GitHub Actions": [".github/**/*.yml", ".github/**/*.yaml"],
   },
   "title_bar": {
     "show_branch_name": true, // Show/hide branch name
@@ -101,8 +96,8 @@
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font",
     "line_height": {
-      "custom": 1.61803398875
-    }
+      "custom": 1.61803398875,
+    },
   },
   // "load_direnv": "shell_hook",
   "lsp": {
@@ -131,10 +126,16 @@
           "updateImportsOnFileMove": {
             "enabled": "always",
           },
+          "tsserver": {
+            "maxTsServerMemory": 16384,
+          },
         },
         "javascript": {
           "updateImportsOnFileMove": {
             "enabled": "always",
+          },
+          "tsserver": {
+            "maxTsServerMemory": 16384,
           },
         },
       },
@@ -143,35 +144,9 @@
     "yaml-language-server": {
       "settings": {
         "yaml": {
-          "customTags": [
-            "!reference sequence"
-          ],
+          "customTags": ["!reference sequence"],
         },
       },
     },
   },
-  "languages": {
-    "JavaScript": {
-      "formatter": {
-        "external": {
-          "command": "node_modules/.bin/prettier",
-          "arguments": [
-            "--stdin-filepath",
-            "{buffer_path}"
-          ]
-        }
-      }
-    },
-    "TypeScript": {
-      "formatter": {
-        "external": {
-          "command": "node_modules/.bin/prettier",
-          "arguments": [
-            "--stdin-filepath",
-            "{buffer_path}"
-          ]
-        }
-      }
-    }
-  }
 }
