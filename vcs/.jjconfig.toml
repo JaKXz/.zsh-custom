@@ -1,4 +1,6 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
 # https://github.com/jj-vcs/jj/blob/main/docs/config.md#user-config-files
+
 [user]
 name = "Jason Kurian"
 
