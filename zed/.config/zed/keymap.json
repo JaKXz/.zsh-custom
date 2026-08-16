@@ -32,7 +32,7 @@
       "ctrl-alt-o": "editor::OrganizeImports",
       "cmd-]": "pane::GoForward",
       "cmd-[": "pane::GoBack",
-      "ctrl-shift-r": "editor::SpawnNearestTask"
+      "ctrl-shift-r": "editor::SpawnNearestTask",
     },
   },
   {
@@ -43,7 +43,7 @@
   {
     "context": "Editor",
     "unbind": {
-      "cmd--": "editor::Fold"
-    }
-  }
+      "cmd--": "editor::Fold",
+    },
+  },
 ]
