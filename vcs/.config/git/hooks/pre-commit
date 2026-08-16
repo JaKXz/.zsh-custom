@@ -1,0 +1,50 @@
+#!/bin/sh
+set -e
+
+# Staged, still-present files (added/copied/modified), NUL-separated.
+# NB: never capture this in a variable — $(...) strips NUL bytes, which would
+# concatenate the filenames. Always pipe straight into xargs -0.
+staged() {
+	git diff --cached --name-only --diff-filter=ACM -z -- "$@"
+}
+
+# Are any files staged for the given pathspec(s)? (count check, NUL-safe)
+any_staged() {
+	[ -n "$(staged "$@" | tr -d '\0')" ]
+}
+
+# $1 = pathspec glob, rest = formatter command (files appended via xargs -0).
+# Formats the staged files in place + re-stages whatever was rewritten.
+run() {
+	glob="$1"; shift
+	any_staged "$glob" || return 0
+	staged "$glob" | xargs -0 "$@"
+	staged "$glob" | xargs -0 git add
+}
+
+command -v rustfmt     >/dev/null 2>&1 && run '*.rs'    rustfmt
+
+command -v tombi       >/dev/null 2>&1 && run '*.toml'  tombi format
+
+command -v swiftformat >/dev/null 2>&1 && run '*.swift' swiftformat
+
+command -v ktlint      >/dev/null 2>&1 && run '*.kt'    ktlint -F
+
+# NB: unfixable lint errors make ESLint exit non-zero, which aborts the commit
+# via `set -e` — same as a rustfmt/ktlint failure. Append `|| true` to the
+# eslint line if you'd rather autofix and commit anyway.
+set -- '*.js' '*.jsx' '*.mjs' '*.cjs' '*.ts' '*.tsx' '*.mts' '*.cts'
+if any_staged "$@" && pnpm exec eslint --version >/dev/null 2>&1; then
+	staged "$@" | xargs -0 pnpm exec eslint --fix --no-warn-ignored
+	staged "$@" | xargs -0 git add
+fi
+
+# The `pnpm exec` guard matters in a repo with no pnpm/prettier,
+# an unguarded call would fail and `set -e` would abort the commit.
+if any_staged ':!*.rs' ':!*.toml' ':!*.swift' ':!*.kt' &&
+	pnpm exec prettier --version >/dev/null 2>&1; then
+	staged ':!*.rs' ':!*.toml' ':!*.swift' ':!*.kt' | xargs -0 pnpm exec prettier --write --ignore-unknown
+	staged ':!*.rs' ':!*.toml' ':!*.swift' ':!*.kt' | xargs -0 git add
+fi
+
+exit 0
