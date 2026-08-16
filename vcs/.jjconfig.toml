@@ -9,3 +9,61 @@ key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKCyI2Yz/DHSH0/aSMUcf+b9GJB5ylr+lYCl3
 backend = "ssh"
 behavior = "own"
 sign-all = true
+
+[revsets]
+# log focused on my work
+# log = "@ | bases | branches | curbranch::@ | @::nextbranch | downstream(@, branchesandheads)"
+
+[remotes.origin]
+auto-track-created-bookmarks = "glob:jakxz/*"
+
+[revset-aliases]
+"bases" = 'bookmarks(glob:"jakxz/*")'
+"downstream(x,y)" = "(x::y) & y"
+"branches" = "downstream(trunk(), bookmarks()) & mine()"
+"branchesandheads" = "bookmarks() | (heads(trunk()::) & mine())"
+"curbranch" = "latest(branches::@- & branches)"
+"nextbranch" = "roots(@:: & branchesandheads)"
+"connected" = "::@ | @::"
+
+"outdated()" = "mutable() ~ trunk()::"
+"outdated(x)" = "x:: & mutable() ~ trunk()::"
+"closest_merge(to)" = "heads(::to & merges())"
+
+[aliases]
+ll = ["log", "-r", "all()", "--limit", "20"]
+lll = ["log", "-r", "all()"]
+# https://isaaccorbrey.com/notes/jujutsu-megamerges-for-fun-and-profit
+# `jj stack <revset>` to include specific revs
+stack = ["rebase", "--after", "trunk()", "--before", "closest_merge(@)", "--revision"]
+
+# `jj stage` to include the whole stack after the megamerge
+stage = ["stack", "closest_merge(@)+:: ~ empty()"]
+
+# `jj restack` to rebase your changes onto `trunk()`
+restack = ["rebase", "--onto", "trunk()", "--source", "roots(trunk()..) & mutable()", "--simplify-parents"]
+
+# `jj push <suffix>` to create/move `jakxz/<suffix>` at @, track it, and push.
+# `bookmark set` is create-or-update, so this works for the first push and for
+# every re-push after an amend. `git push -b` auto-tracks a new bookmark on its
+# own, so this doesn't depend on `auto-track-created-bookmarks` firing.
+# Extra args pass through to `bookmark set` (e.g. `-r <rev>`, `-B`).
+#   jj push BEE-939/new-feature  ->  jakxz/BEE-939/new-feature
+push = [
+  "util",
+  "exec",
+  "--",
+  "bash",
+  "-c",
+  '''
+set -euo pipefail
+if [ $# -eq 0 ]; then
+  echo "usage: jj push <name-suffix> [args for 'jj bookmark set']" >&2
+  exit 2
+fi
+name="jakxz/$1"; shift
+jj bookmark set "$name" "$@"
+jj git push -b "$name"
+''',
+  ""
+]
