@@ -7,79 +7,29 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "formatter": "auto",
-  "format_on_save": "on",
-  "use_system_window_tabs": false,
-  "tab_bar": {
-    "show_pinned_tabs_in_separate_row": true,
-  },
-  "tabs": {
-    "git_status": true,
-    "file_icons": true,
-  },
-  "cli_default_open_behavior": "new_window",
-  "outline_panel": {
-    "dock": "left",
-  },
-  "collaboration_panel": {
-    "dock": "left",
-  },
-  "git_panel": {
-    "dock": "left",
-  },
-  "debugger": {
-    "dock": "left",
-  },
-  "calls": {
-    "mute_on_join": true,
-  },
-  "tab_size": 2,
-  "vertical_scroll_margin": 10.0,
-  "theme": {
-    "mode": "system",
-    "light": "Night Owl Light",
-    "dark": "Tokyo Night",
-  },
-  "show_edit_predictions": true,
-  "base_keymap": "JetBrains",
-  "scroll_beyond_last_line": "vertical_scroll_margin",
-  "edit_predictions": {
-    "provider": "none",
-    "disabled_globs": [],
-    "mode": "subtle",
-    "copilot": {
-      "enable_next_edit_suggestions": false,
-      "proxy": null,
-      "proxy_no_verify": null,
-      "enterprise_uri": null,
+  "agent_servers": {
+    "claude-acp": {
+      "default_config_options": {
+        "mode": "plan",
+      },
+      "type": "registry",
+    },
+    "codex-acp": {
+      "default_config_options": {
+        "collaboration_mode": "plan",
+        "fast-mode": false,
+        "reasoning_effort": "xhigh",
+      },
+      "type": "registry",
     },
   },
-  "file_types": {
-    "GitHub Actions": [".github/**/*.yml", ".github/**/*.yaml"],
-  },
-  "title_bar": {
-    "show_branch_name": true, // Show/hide branch name
-    "show_project_items": true, // Show/hide project host and name
-    "show_onboarding_banner": false, // Show/hide onboarding banners
-    "show_user_picture": false, // Show/hide user avatar
-    "show_sign_in": false, // Show/hide sign-in button
-    "show_menus": true, // Show/hide menus
-  },
-  "project_panel": {
-    "dock": "right",
-  },
-  "indent_guides": {
-    "line_width": 1,
-    "active_line_width": 2,
-    "coloring": "indent_aware",
-    "background_coloring": "indent_aware",
-  },
+  "base_keymap": "JetBrains",
   // "ui_font_size": 17,
   // "buffer_font_size": 17,
   // "buffer_font_family": "Monaspace Neon",
   "buffer_font_features": {
-    "liga": true,
     "calt": true,
+    "liga": true,
     "ss01": true,
     "ss02": true,
     "ss03": true,
@@ -93,60 +43,151 @@
     "ss11": true,
     "ss12": true,
   },
+  "calls": {
+    "mute_on_join": true,
+  },
+  "cli_default_open_behavior": "new_window",
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "completions": {
+    "lsp": true,
+  },
+  "enable_language_server": true,
+  "file_types": {
+    "GitHub Actions": [".github/**/*.yml", ".github/**/*.yaml"],
+  },
+  "format_on_save": "on",
+  "formatter": "auto",
+  "git_panel": {
+    "dock": "left",
+  },
+  "indent_guides": {
+    "active_line_width": 2,
+    "background_coloring": "indent_aware",
+    "coloring": "indent_aware",
+    "line_width": 1,
+  },
+  // jj_lsp doesn't implement textDocument/diagnostic, so Zed's diagnostic
+  // pulls against it fail with "Method not found" on every buffer of these
+  // languages - which flooded the log and buried real rust-analyzer/vtsls
+  // errors. Disable it here; leave it enabled elsewhere.
+  "languages": {
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+      },
+      "language_servers": ["!jj_lsp", "..."],
+    },
+    "Rust": {
+      "language_servers": ["!jj_lsp", "..."],
+    },
+    "TSX": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+      },
+      "language_servers": ["!jj_lsp", "..."],
+    },
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true,
+      },
+      "language_servers": ["!jj_lsp", "..."],
+    },
+  },
+  "lsp": {
+    "vtsls": {
+      "enable_lsp_tasks": true,
+      "settings": {
+        "eslint": {
+          "settings": {
+            "codeActionOnSave": {
+              "mode": "all",
+            },
+            "workingDirectory": { "mode": "auto" },
+          },
+        },
+        "javascript": {
+          "tsserver": {
+            "maxTsServerMemory": 16384,
+          },
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+        "typescript": {
+          "tsserver": {
+            "maxTsServerMemory": 16384,
+          },
+          "updateImportsOnFileMove": {
+            "enabled": "always",
+          },
+        },
+      },
+      "yaml-language-server": {
+        "settings": {
+          "yaml": {
+            "customTags": ["!reference sequence"],
+          },
+        },
+      },
+      // "rust-analyzer": {
+      //   "initialization_options": {
+      //     // "cargo": {},
+      //     "check": {
+      //       "overrideCommand": [
+      //         "./tools/with-wasm-env",
+      //         "cargo",
+      //         "clippy",
+      //         "--target=wasm32-unknown-unknown",
+      //         // "--features",
+      //         // "item-details,masked-email,totp,brex,b5x",
+      //         "--all-features",
+      //         "--message-format=json",
+      //         "-p",
+      //         "op-wasm-b5x"
+      //       ]
+      //     }
+      //   }
+      // },
+    },
+  },
+  "outline_panel": {
+    "dock": "left",
+  },
+  "project_panel": {
+    "dock": "right",
+  },
+  "scroll_beyond_last_line": "vertical_scroll_margin",
+  "show_completions_on_input": true,
+  "show_edit_predictions": true,
+  "tab_bar": {
+    "show_pinned_tabs_in_separate_row": true,
+  },
+  "tab_size": 2,
+  "tabs": {
+    "file_icons": true,
+    "git_status": true,
+  },
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font",
     "line_height": {
       "custom": 1.61803398875,
     },
   },
-  // "load_direnv": "shell_hook",
-  "lsp": {
-    // "rust-analyzer": {
-    //   "initialization_options": {
-    //     // "cargo": {},
-    //     "check": {
-    //       "overrideCommand": [
-    //         "./tools/with-wasm-env",
-    //         "cargo",
-    //         "clippy",
-    //         "--target=wasm32-unknown-unknown",
-    //         // "--features",
-    //         // "item-details,masked-email,totp,brex,b5x",
-    //         "--all-features",
-    //         "--message-format=json",
-    //         "-p",
-    //         "op-wasm-b5x"
-    //       ]
-    //     }
-    //   }
-    // },
-    "vtsls": {
-      "settings": {
-        "typescript": {
-          "updateImportsOnFileMove": {
-            "enabled": "always",
-          },
-          "tsserver": {
-            "maxTsServerMemory": 16384,
-          },
-        },
-        "javascript": {
-          "updateImportsOnFileMove": {
-            "enabled": "always",
-          },
-          "tsserver": {
-            "maxTsServerMemory": 16384,
-          },
-        },
-      },
-      "enable_lsp_tasks": true,
-    },
-    "yaml-language-server": {
-      "settings": {
-        "yaml": {
-          "customTags": ["!reference sequence"],
-        },
-      },
-    },
+  "theme": {
+    "dark": "Tokyo Night",
+    "light": "Night Owl Light",
+    "mode": "system",
   },
+  "title_bar": {
+    "show_branch_name": true, // Show/hide branch name
+    "show_menus": true, // Show/hide menus
+    "show_onboarding_banner": false, // Show/hide onboarding banners
+    "show_project_items": true, // Show/hide project host and name
+    "show_sign_in": false, // Show/hide sign-in button
+    "show_user_picture": false, // Show/hide user avatar
+  },
+  "use_system_window_tabs": false,
+  "vertical_scroll_margin": 10.0,
 }
