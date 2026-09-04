@@ -1,47 +1,26 @@
 #:schema https://docs.jj-vcs.dev/latest/config-schema.json
 # https://github.com/jj-vcs/jj/blob/main/docs/config.md#user-config-files
 
-[user]
-name = "Jason Kurian"
-
-[signing]
-key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKCyI2Yz/DHSH0/aSMUcf+b9GJB5ylr+lYCl3SPRdCn4"
-backend = "ssh"
-behavior = "own"
-sign-all = true
-
-[revsets]
-# log focused on my work
-# log = "@ | bases | branches | curbranch::@ | @::nextbranch | downstream(@, branchesandheads)"
-
-[remotes.origin]
-auto-track-created-bookmarks = "glob:jakxz/*"
-
-[revset-aliases]
-"bases" = 'bookmarks(glob:"jakxz/*")'
-"downstream(x,y)" = "(x::y) & y"
-"branches" = "downstream(trunk(), bookmarks()) & mine()"
-"branchesandheads" = "bookmarks() | (heads(trunk()::) & mine())"
-"curbranch" = "latest(branches::@- & branches)"
-"nextbranch" = "roots(@:: & branchesandheads)"
-"connected" = "::@ | @::"
-
-"outdated()" = "mutable() ~ trunk()::"
-"outdated(x)" = "x:: & mutable() ~ trunk()::"
-"closest_merge(to)" = "heads(::to & merges())"
-
 [aliases]
+da = ["abandon", "--no-integrate-operation", "outdated()"]
+
+# `jj git-sha [revision]` prints the full Git commit SHA (defaults to `@-`).
+git-sha = [
+  "util",
+  "exec",
+  "--",
+  "bash",
+  "-c",
+  '''
+set -euo pipefail
+revision="${1:-@-}"
+jj log -r "$revision" --no-graph -T 'commit_id ++ "\n"'
+''',
+  ""
+]
+
 ll = ["log", "-r", "all()", "--limit", "20"]
 lll = ["log", "-r", "all()"]
-# https://isaaccorbrey.com/notes/jujutsu-megamerges-for-fun-and-profit
-# `jj stack <revset>` to include specific revs
-stack = ["rebase", "--after", "trunk()", "--before", "closest_merge(@)", "--revision"]
-
-# `jj stage` to include the whole stack after the megamerge
-stage = ["stack", "closest_merge(@)+:: ~ empty()"]
-
-# `jj restack` to rebase your changes onto `trunk()`
-restack = ["rebase", "--onto", "trunk()", "--source", "roots(trunk()..) & mutable()", "--simplify-parents"]
 
 # `jj push <suffix>` to create/move `jakxz/<suffix>` at @, track it, and push.
 # `bookmark set` is create-or-update, so this works for the first push and for
@@ -67,3 +46,48 @@ jj git push -b "$name"
 ''',
   ""
 ]
+
+# `jj restack` to rebase your changes onto `trunk()`
+restack = ["rebase", "--onto", "trunk()", "--source", "roots(trunk()..) & mutable()", "--simplify-parents"]
+
+# https://isaaccorbrey.com/notes/jujutsu-megamerges-for-fun-and-profit
+# `jj stack <revset>` to include specific revs
+stack = ["rebase", "--after", "trunk()", "--before", "closest_merge(@)", "--revision"]
+
+# `jj stage` to include the whole stack after the megamerge
+stage = ["stack", "closest_merge(@)+:: ~ empty()"]
+
+[remotes.origin]
+auto-track-created-bookmarks = "glob:jakxz/*"
+
+[revset-aliases]
+"bases" = 'bookmarks(glob:"jakxz/*")'
+"branches" = "downstream(trunk(), bookmarks()) & mine()"
+"branchesandheads" = "bookmarks() | (heads(trunk()::) & mine())"
+"connected" = "::@ | @::"
+"curbranch" = "latest(branches::@- & branches)"
+"downstream(x,y)" = "(x::y) & y"
+"nextbranch" = "roots(@:: & branchesandheads)"
+
+"closest_merge(to)" = "heads(::to & merges())"
+"outdated()" = "mutable() ~ trunk()::"
+"outdated(x)" = "x:: & mutable() ~ trunk()::"
+
+[revset-aliases."closest_pushable(to)"]
+definition = 'heads(::to & mutable() & ~empty() & description(regex:".+"))'
+doc = "Closest mutable, non-empty, described commits at or behind to"
+
+[revsets]
+# log focused on my work
+# log = "@ | bases | branches | curbranch::@ | @::nextbranch | downstream(@, branchesandheads)"
+
+# bookmark-advance-to = "closest_pushable(@)"
+
+[signing]
+backend = "ssh"
+behavior = "own"
+key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKCyI2Yz/DHSH0/aSMUcf+b9GJB5ylr+lYCl3SPRdCn4"
+sign-all = true
+
+[user]
+name = "Jason Kurian"
