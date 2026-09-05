@@ -3,6 +3,7 @@
 
 [aliases]
 da = ["abandon", "--no-integrate-operation", "outdated()"]
+dm = ["diff", "-r", "trunk()..@", "--name-only"]
 
 # `jj git-sha [revision]` prints the full Git commit SHA (defaults to `@-`).
 git-sha = [
@@ -43,6 +44,20 @@ fi
 name="jakxz/$1"; shift
 jj bookmark set "$name" "$@"
 jj git push -b "$name"
+''',
+  ""
+]
+
+rbm = [
+  "util",
+  "exec",
+  "--",
+  "bash",
+  "-c",
+  '''
+set -euo pipefail
+jj git fetch
+jj rebase -b bases -o 'trunk()' "$@"
 ''',
   ""
 ]
