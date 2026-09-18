@@ -5,6 +5,7 @@
       "cmd-2": "terminal_panel::ToggleFocus",
       "cmd-2": "workspace::ToggleBottomDock",
       "ctrl-`": "theme_selector::Toggle",
+      "alt-space": "workspace::ToggleZoom",
     },
   },
   {
@@ -33,6 +34,15 @@
       "cmd-]": "pane::GoForward",
       "cmd-[": "pane::GoBack",
       "ctrl-shift-r": "editor::SpawnNearestTask",
+      "cmd-alt-n": [
+        "action::Sequence",
+        [
+          // "project_panel::ToggleFocus",
+          // "menu::SelectFirst",
+          "pane::RevealInProjectPanel",
+          "project_panel::NewFile",
+        ],
+      ],
     },
   },
   {
