@@ -110,6 +110,9 @@
 [sequence]
 	editor = interactive-rebase-tool
 
+[tag]
+	gpgSign = true
+
 [user]
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA5WWneiXcg5MGOMa5hWfis2HzYpo8RurRnpRA1kSD6a
 	name = Jason Kurian
