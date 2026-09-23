@@ -17,7 +17,7 @@
     "codex-acp": {
       "default_config_options": {
         "collaboration_mode": "plan",
-        "fast-mode": false,
+        "fast-mode": true,
         "reasoning_effort": "xhigh",
       },
       "type": "registry",
@@ -176,8 +176,8 @@
     },
   },
   "theme": {
-    "dark": "Tokyo Night",
-    "light": "Night Owl Light",
+    "dark": "JetBrains Islands Dark",
+    "light": "Dracula Light (Alucard",
     "mode": "system",
   },
   "title_bar": {
