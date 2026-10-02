@@ -10,12 +10,15 @@
   "agent_servers": {
     "claude-acp": {
       "default_config_options": {
+        "effort": "xhigh",
+        "fast": true,
         "mode": "plan",
       },
       "type": "registry",
     },
     "codex-acp": {
       "default_config_options": {
+        "model": "gpt-6-astra",
         "collaboration_mode": "plan",
         "fast-mode": true,
         "reasoning_effort": "xhigh",
@@ -48,6 +51,7 @@
   },
   "cli_default_open_behavior": "new_window",
   "collaboration_panel": {
+    "button": false,
     "dock": "left",
   },
   "completions": {
@@ -164,7 +168,7 @@
     },
   },
   "outline_panel": {
-    "dock": "left",
+    "dock": "right",
   },
   "project_panel": {
     "dock": "right",
@@ -186,11 +190,7 @@
       "custom": 1.61803398875,
     },
   },
-  "theme": {
-    "dark": "Night Owl No Italics",
-    "light": "Dracula",
-    "mode": "system",
-  },
+  "theme": "Monokai-og",
   "title_bar": {
     "show_branch_name": true, // Show/hide branch name
     "show_menus": true, // Show/hide menus
