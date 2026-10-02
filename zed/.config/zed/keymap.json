@@ -53,6 +53,7 @@
   },
   {
     "bindings": {
+      "cmd-0": "zed::ResetAllZoom",
       "cmd-shift-c": null,
     },
   },

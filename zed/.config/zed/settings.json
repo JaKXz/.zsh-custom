@@ -68,6 +68,17 @@
     "coloring": "indent_aware",
     "line_width": 1,
   },
+  "inlay_hints": {
+    "enabled": true,
+    "toggle_on_modifiers_press": {
+      // "platform": true,
+    },
+    "show_parameter_hints": true,
+    "show_other_hints": true,
+    "show_background": true,
+    "show_type_hints": false,
+    "show_value_hints": true,
+  },
   // jj_lsp doesn't implement textDocument/diagnostic, so Zed's diagnostic
   // pulls against it fail with "Method not found" on every buffer of these
   // languages - which flooded the log and buried real rust-analyzer/vtsls
@@ -176,8 +187,8 @@
     },
   },
   "theme": {
-    "dark": "JetBrains Islands Dark",
-    "light": "Dracula Light (Alucard",
+    "dark": "Night Owl No Italics",
+    "light": "Dracula",
     "mode": "system",
   },
   "title_bar": {
