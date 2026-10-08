@@ -1,0 +1,78 @@
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer"]
+#formatter = { command = "rustfmt --edition 2021" }
+indent = { tab-width = 4, unit = "t" }
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+
+[language-server.rust-analyzer.config]
+inlayHints.typeHints.enable = false
+inlayHints.parameterHints.enable = false
+checkOnSave.command = "clippy"
+cargo.allFeatures = true
+# cargo.features = ["item-details", "masked-email", "totp", "brex"]
+rustfmt.overrideCommand = ["leptosfmt", "--stdin", "--rustfmt"]
+# cargo.target = "wasm32-unknown-unknown"
+
+
+# [language-server.rust-analyzer.check]
+# command = "clippy"
+
+
+[language-server.rust-analyzer.files]
+excludeDirs = [
+  ".git",
+  ".gitlab",
+  ".venv",
+  ".vscode",
+  "bin",
+  "docs",
+  "target",
+  "assets",
+  "store-metadata",
+  ".direnv",
+  ".cargo",
+]
+
+[language-server.rust-analyzer.rust]
+analyzerTargetDir = true
+
+
+[[language]]
+name = "lua"
+formatter = { command = "stylua" }
+
+[[language]]
+name = "html"
+formatter = { command = 'prettier', args = ["--parser", "html"] }
+
+# ~/.config/helix/languages.toml
+[[language]]
+name = "typescript"
+roots = ["deno.json", "deno.jsonc", "package.json"]
+language-servers = ["typescript-language-server", "deno-lsp"]
+
+[language-server.typescript-language-server]
+required-root-patterns = ["package.json"]
+formatter = { command = 'prettier', args = ["--parser", "html"] }
+
+[language-server.deno-lsp]
+command = "deno"
+args = ["lsp"]
+config = { deno = { enable = true } }
+required-root-patterns = ["deno.*"]
+formatter = { command = 'deno', args = ["fmt"] }
+
+[[language]]
+name = "scss"
+formatter = { command = 'prettier', args = ["--parser", "scss"] }
+
+
+[[language]]
+name = "toml"
+auto-format = true
+formatter = { command = "taplo", args = ["fmt", "-"] }
+
