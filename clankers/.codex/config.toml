@@ -1,0 +1,75 @@
+model_reasoning_effort = "max"
+plan_mode_reasoning_effort = "xhigh"
+service_tier = "fast"
+model = "gpt-6-astra"
+
+[tui]
+show_tooltips = false
+notifications = true
+status_line = ["model-with-reasoning", "git-branch", "context-used", "estimated-thread-cost"]
+session_picker_view = "comfortable"
+screen_reader_detection_done = true
+
+[projects."/Users/jason.kurian"]
+trust_level = "trusted"
+
+[projects."/Users/jason.kurian/src/go.1password.io/core"]
+trust_level = "trusted"
+
+[projects."/Users/jason.kurian/src/go.1password.io/core-lint-fix"]
+trust_level = "trusted"
+
+[projects."/Users/jason.kurian/.claude/plugins/marketplaces/hype-machine"]
+trust_level = "trusted"
+
+[projects."/Users/jason.kurian/src/jakxz/.zsh-custom"]
+trust_level = "trusted"
+
+[projects."/Users/jason.kurian/src/go.1password.io/poll-jobs-and-fast-fail"]
+trust_level = "trusted"
+
+[projects."/Users/jason.kurian/src/go.1password.io/b5"]
+trust_level = "trusted"
+
+[projects."/Users/jason.kurian/src/jakxz/tpac-2026"]
+trust_level = "trusted"
+
+[hooks.state]
+
+[hooks.state."/Users/jason.kurian/.codex/hooks.json:subagent_start:0:0"]
+trusted_hash = "sha256:b8496473fa05362b266baf7e7107a434d52eda0666fd7d50d44856433b40257f"
+enabled = true
+
+[mcp_servers.atlassian]
+url = "https://mcp.atlassian.com/v2/mcp"
+
+[mcp_servers.figma]
+url = "https://mcp.figma.com/mcp"
+
+[mcp_servers.notion]
+url = "https://mcp.notion.com/mcp"
+
+[mcp_servers.knox]
+url = "https://knox-mcp.dev.us.svc.1infrapreview.net/mcp"
+
+[mcp_servers.knox.tools.knox_get_component]
+approval_mode = "approve"
+
+[mcp_servers.datadog]
+url = "https://mcp.datadoghq.com/v1/mcp"
+
+[marketplaces.slack]
+source_type = "git"
+source = "https://github.com/slackapi/slack-skills-plugin.git"
+
+[plugins."slack@slack"]
+enabled = true
+
+[features]
+memories = true
+
+[memories]
+generate_memories = true
+use_memories = true
+extract_model = "gpt-6-astra"
+consolidation_model = "gpt-6-astra"

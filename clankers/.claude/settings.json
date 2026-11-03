@@ -1,0 +1,93 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__claude_ai_Slack__slack_search_public",
+      "mcp__claude_ai_Slack__slack_search_public_and_private",
+      "mcp__claude_ai_Slack__slack_read_channel",
+      "mcp__claude_ai_Slack__slack_read_thread",
+      "mcp__claude_ai_Slack__slack_search_channels",
+      "mcp__claude_ai_Slack__slack_search_users",
+      "mcp__claude_ai_Slack__slack_read_user_profile",
+      "mcp__claude_ai_Slack__slack_send_message",
+      "mcp__claude_ai_Atlassian_Rovo__searchJiraIssuesUsingJql",
+      "mcp__claude_ai_Atlassian_Rovo__getJiraIssue",
+      "mcp__claude_ai_Atlassian_Rovo__atlassianUserInfo",
+      "mcp__claude_ai_Atlassian_Rovo__getAccessibleAtlassianResources",
+      "mcp__claude_ai_Atlassian_Rovo__lookupJiraAccountId",
+      "mcp__claude_ai_Notion__*",
+      "Bash(~/.claude/hype-machine/pr-review-threads.sh:*)",
+      "Bash(~/.claude/hype-machine/figma-comments.sh:*)",
+      "mcp__claude_ai_Figma__get_metadata",
+      "mcp__claude_ai_Figma__get_design_context",
+      "Bash(gh auth status)",
+      "Bash(gh search:*)",
+      "Bash(gh api user:*)",
+      "Bash(gh auth switch:*)",
+      "Bash(crontab:*)"
+    ],
+    "defaultMode": "plan"
+  },
+  "model": "opus",
+  "hooks": {
+    "SubagentStart": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/subagent-project-docs.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "chaki-release-tools@1password-plugins-community": true,
+    "datadog@claude-plugins-official": true,
+    "rev-sc@1password-plugins-community": true,
+    "hype-machine@hype-machine": true,
+    "knox-mcp@1password-plugins-endorsed": true,
+    "figma@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "1password-plugins-community": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/agilebits-inc/ai-plugins-community.git",
+        "ref": "main"
+      }
+    },
+    "hype-machine": {
+      "source": {
+        "source": "github",
+        "repo": "agilebits-inc/hype-machine"
+      }
+    },
+    "1password-plugins-endorsed": {
+      "source": {
+        "source": "git",
+        "url": "git@github.com:agilebits-inc/1password-plugins-endorsed.git"
+      }
+    }
+  },
+  "spinnerTipsEnabled": false,
+  "effortLevel": "xhigh",
+  "modelSettings": {
+    "claude-sonnet-5": {
+      "effortLevel": "xhigh"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    }
+  },
+  "promptSuggestionEnabled": false,
+  "theme": "auto",
+  "autoCompactEnabled": false,
+  "inputNeededNotifEnabled": true
+}

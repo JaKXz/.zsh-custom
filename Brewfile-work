@@ -1,5 +1,5 @@
 tap "mikescher/tap"
-tap "sulemaanhamza/wisp"
+brew "act"
 brew "bat"
 brew "btop"
 brew "coreutils"
@@ -20,6 +20,7 @@ brew "mas"
 brew "mise"
 brew "mpv"
 brew "pnpm"
+brew "podman"
 brew "prettyping"
 brew "procs"
 brew "pstree"
@@ -34,7 +35,7 @@ cask "1password-cli"
 cask "appcleaner"
 cask "asix-ax88179"
 cask "betterdisplay"
-cask "claude-code"
+cask "claude-code@latest"
 cask "codex"
 cask "couleurs"
 cask "figma"
@@ -44,12 +45,13 @@ cask "font-monaspace"
 cask "font-victor-mono"
 cask "github"
 cask "gpg-suite@nightly"
-cask "logi-options+"
 cask "maccy"
+cask "macusb"
+cask "openlogi"
+cask "podman-desktop"
 cask "rectangle"
 cask "signal"
 cask "wezterm"
-cask "sulemaanhamza/wisp/wisp", trusted: true
 cask "zed"
 cask "zen"
 mas "1Password for Safari", id: 1569813296
@@ -59,6 +61,7 @@ mas "DaisyDisk", id: 411643860
 mas "Focus Matrix", id: 1087284172
 mas "GarageBand", id: 682658836
 mas "Keynote", id: 361285480
+mas "MindNode Classic", id: 1289197285
 mas "Numbers", id: 361304891
 mas "Okta Verify", id: 490179405
 mas "Pages", id: 361309726

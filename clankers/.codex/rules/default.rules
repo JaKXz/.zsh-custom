@@ -1,0 +1,41 @@
+# Read-only GitHub CLI commands ported from ~/.claude/settings.json.
+prefix_rule(
+    pattern = ["gh", "auth", "status"],
+    decision = "allow",
+    justification = "Allow checking GitHub CLI authentication status.",
+    match = ["gh auth status"],
+    not_match = ["gh auth login"],
+)
+
+prefix_rule(
+    pattern = ["gh", "search"],
+    decision = "allow",
+    justification = "Allow read-only GitHub searches.",
+    match = ["gh search prs arti", "gh search issues authentication"],
+    not_match = ["gh repo delete example/repo"],
+)
+
+prefix_rule(
+    pattern = ["gh", "api", "user"],
+    decision = "allow",
+    justification = "Allow read-only GitHub user API queries.",
+    match = ["gh api user", "gh api user --jq .login"],
+    not_match = ["gh api repos/example/repo"],
+)
+prefix_rule(pattern=["git", "clone"], decision="allow")
+prefix_rule(pattern=["gh", "api", "repos/sulemaanhamza/wisp", "--jq", "{default_branch,pushed_at,security_and_analysis}"], decision="allow")
+prefix_rule(pattern=["gh", "pr", "view"], decision="allow")
+prefix_rule(pattern=["gh", "api", "--paginate", "repos/agilebits-inc/hype-machine/pulls/3/comments", "--jq", ".[] | {id, path, line, original_line, side, start_line, original_start_line, commit_id, original_commit_id, in_reply_to_id, user: .user.login, created_at, updated_at, body, diff_hunk, html_url}"], decision="allow")
+prefix_rule(pattern=["gh", "api", "--paginate", "repos/agilebits-inc/hype-machine/pulls/3/comments", "--jq", ".[] | {id, path, line, original_line, commit_id, original_commit_id, in_reply_to_id, user: .user.login, created_at, updated_at, body, diff_hunk, html_url}"], decision="allow")
+prefix_rule(pattern=["gh", "api", "--paginate", "repos/agilebits-inc/hype-machine/pulls/3/comments", "--jq", ".[] | {id, path, line, original_line, commit_id, original_commit_id, in_reply_to_id, user: .user.login, created_at, updated_at, finding: (.body | split(\"<!-- BUGBOT_BUG_ID\")[0]), diff_hunk, html_url}"], decision="allow")
+prefix_rule(pattern=["gh", "api", "--paginate", "repos/agilebits-inc/hype-machine/pulls/3/comments", "--jq", ".[] | select(.id > 3905698525) | {id, path, line, commit_id, user: .user.login, created_at, finding: (.body | split(\"<!-- BUGBOT_BUG_ID\")[0]), diff_hunk, html_url}"], decision="allow")
+prefix_rule(pattern=["git", "add", "--", "skills/source-work/SKILL.md"], decision="allow")
+prefix_rule(pattern=["git", "push", "origin", "jk/slack-query-hardening"], decision="allow")
+prefix_rule(pattern=["gh", "pr", "diff"], decision="allow")
+prefix_rule(pattern=["awk", "/^js\\/b5x\\// && !/\\/Makefile$/ && !/\\/package.json$/"], decision="allow")
+prefix_rule(pattern=["python3", "/Users/jason.kurian/.codex/skills/.system/skill-creator/scripts/init_skill.py", "react-patterns", "--path", "/Users/jason.kurian/.agents/skills", "--resources", "references"], decision="allow")
+prefix_rule(pattern=["sed", "-n", "1,260p", "/Users/jason.kurian/.agents/skills/react-patterns/SKILL.md"], decision="allow")
+prefix_rule(pattern=["sed", "-n", "1,220p", "/Users/jason.kurian/.agents/skills/react-patterns/agents/openai.yaml"], decision="allow")
+prefix_rule(pattern=["open", "https://auth.atlassian.com/authorize?response_type=code&client_id=https%3A%2F%2Fchatgpt.com%2Foauth%2Fcodex%2FcEoEhF6PibkL%2Fclient.json&state=GokuAPOrGwDhDLcBc-UyAw&code_challenge=SldUBo8Jzr6emWz5yplo4wm4f0aMNWjamSjd3Op1wF4&code_challenge_method=S256&redirect_uri=http%3A%2F%2F127.0.0.1%3A50425%2Fcallback%2FcEoEhF6PibkL&scope=read%3Ame+read%3Aaccount+offline_access+email+read%3Ajira-work+write%3Ajira-work+search%3Aconfluence+read%3Aconfluence-user+read%3Apage%3Aconfluence+write%3Apage%3Aconfluence+read%3Acomment%3Aconfluence+write%3Acomment%3Aconfluence+read%3Aspace%3Aconfluence+read%3Ahierarchical-content%3Aconfluence+write%3Acomponent%3Acompass+read%3Acomponent%3Acompass+read%3Ascorecard%3Acompass+write%3Ascorecard%3Acompass+read%3Aevent%3Acompass+read%3Ametric%3Acompass+read%3Aall%3Atwg+write%3Aall%3Atwg&resource=https%3A%2F%2Fmcp.atlassian.com%2Fv1%2Fmcp%2Fauthv2"], decision="allow")
+prefix_rule(pattern=["gh", "api", "repos/agilebits-inc/core/pulls/42116/reviews/5355497381", "--jq", "{id, state, user: .user.login, html_url, submitted_at, body}"], decision="allow")
+prefix_rule(pattern=["nix-shell", "nix/shell.nix", "--run", "command -v buf; buf generate --help"], decision="allow")
