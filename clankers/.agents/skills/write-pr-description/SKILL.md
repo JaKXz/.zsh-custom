@@ -73,6 +73,12 @@ to the user explicitly rather than guessing.
   that approach, grouped by area/component. Not a line-by-line diff
   walkthrough; name the key mechanism per area (renamed/added/removed
   concepts), not every changed line.
+- Write in active voice. In **Why**, name the component or person performing
+  the action. In **What**, lead with direct, present-tense verbs such as
+  "Requires", "Renames", and "Updates".
+- Before copying, review passive constructions and rewrite them using the
+  known actor without inventing attribution. For example, change "An ID is
+  required" to "Requires an ID".
 - Keep both sections tight - a few sentences each, not a wall of text.
 - Append the mandatory fields (if any were found in step 2) directly after
   `## What`, each on its own line, matching the template's exact label

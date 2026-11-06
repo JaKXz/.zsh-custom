@@ -104,6 +104,10 @@ When recommending commands for a CLI installed in the user's environment:
 
 When writing or modifying tests, including delegated work:
 
+- Keep test bodies linear: no `if`, `switch`, ternaries, or conditional
+  short-circuit branches. Use `describe.each` or `describe.table` or `it.each` or `it.table` with explicit inputs and expected outputs
+  when setup is shared; use separate tests when setup differs. Do not recreate
+  production decisions in assertions or expectation-building helpers.
 - Keep varying responses, branch-defining conditions, and other scenario-specific
   fixtures and spies in each test's Arrange section.
 - Share stable setup in the narrowest relevant describe block or equivalent test

@@ -1,4 +1,4 @@
-model_reasoning_effort = "max"
+model_reasoning_effort = "xhigh"
 plan_mode_reasoning_effort = "xhigh"
 service_tier = "fast"
 model = "gpt-6-astra"
