@@ -17,6 +17,7 @@ alias sp='sudo purge'
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
 alias map='xargs -n1'
+alias jq='jaq'
 
 # Change working directory to the top-most Finder window location
 function cdf() { # short for `cdfinder`

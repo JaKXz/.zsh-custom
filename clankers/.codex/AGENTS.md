@@ -89,13 +89,22 @@ When recommending commands for a CLI installed in the user's environment:
 - Always use the `gh` CLI for interactions with github.com, including GitHub API
   requests through `gh api`. Pipe JSON results to `jq`. Never use `curl`, `wget`,
   or equivalent alternatives.
-- For JSON or JSON Lines, use `jq` when it can reasonably express the parsing,
-  filtering, or transformation. Prefer readable `jq` filters over one-off
-  scripts in Python or other general-purpose languages.
-- For other formats, an unavailable `jq`, or operations it cannot reasonably
-  handle, try a suitable purpose-built CLI or simple shell commands first. Use
-  one-off Python only when those options cannot reasonably do the job; briefly
-  explain why.
+- Keep `jq` as the preferred command spelling. `jaq` is installed locally and
+  aliased as `jq='jaq'`; it supports JSON, JSON Lines, YAML, TOML, XML, CSV/TSV,
+  CBOR, and other formats documented in the [jaq manual](https://gedenkt.at/jaq/manual/).
+  Agent and non-interactive shells may not load this alias. When jaq-specific
+  capabilities are needed and the alias is absent, invoke `jaq` explicitly.
+- For supported formats, use `jq` (or explicit `jaq` as above) when it can
+  reasonably express the validation, parsing, filtering, or transformation.
+  Prefer readable jq filters over one-off scripts in Python or other
+  general-purpose languages.
+- Validate YAML syntax locally with `jq --from yaml empty file.yaml`, or
+  `jaq --from yaml empty file.yaml` when the alias is absent. Preserve parsing
+  errors and the command's exit status; do not write a custom script for this.
+- For unsupported formats, unavailable tools, or operations they cannot
+  reasonably handle, try another suitable purpose-built local CLI or simple
+  shell commands first. Use one-off Ruby only when those options cannot
+  reasonably do the job; briefly explain why. Stop when you have to reach for Python.
 - This applies to main agents and subagents. Pass the rule along when delegating
   to a subagent that may not receive global instructions.
 - This preference does not restrict normal Python project code or tests.

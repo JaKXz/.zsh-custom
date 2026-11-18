@@ -10,6 +10,7 @@
   "agent_servers": {
     "claude-acp": {
       "default_config_options": {
+        // "model": "fable",
         "effort": "xhigh",
         "fast": true,
         "mode": "plan",
@@ -27,9 +28,9 @@
     },
   },
   "base_keymap": "JetBrains",
-  // "ui_font_size": 17,
-  // "buffer_font_size": 17,
-  // "buffer_font_family": "Monaspace Neon",
+  // "ui_font_size": 18,
+  // "buffer_font_size": 18,
+  // "buffer_font_family": "Martian Mono",
   "buffer_font_features": {
     "calt": true,
     "liga": true,
@@ -175,7 +176,7 @@
   },
   "reveal_if_open": true,
   "scroll_beyond_last_line": "vertical_scroll_margin",
-  "show_completions_on_input": true,
+  "show_completions_on_input": false,
   "show_edit_predictions": true,
   "tab_bar": {
     "show_pinned_tabs_in_separate_row": true,
@@ -191,7 +192,7 @@
       "custom": 1.61803398875,
     },
   },
-  "theme": "Monokai-og",
+  "theme": "One Dark",
   "title_bar": {
     "show_branch_name": true, // Show/hide branch name
     "show_menus": true, // Show/hide menus
